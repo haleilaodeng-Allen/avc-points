@@ -1,0 +1,715 @@
+{
+  "hotel_name": "Anantara Vacation Club at Anantara Hua Hin",
+  "hotel_code": "S004801",
+  "updated": "2026-06-26",
+  "years": [
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "R01",
+      "name": "Lagoon View Suite King",
+      "max": 3
+    },
+    {
+      "code": "R04",
+      "name": "Lagoon View Suite Twin",
+      "max": 4
+    },
+    {
+      "code": "2BR",
+      "name": "Two Bedroom Suite",
+      "max": 6
+    },
+    {
+      "code": "2BR_JAZ",
+      "name": "Two Bedroom Suite with Jacuzzi",
+      "max": 6
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2023-04-18",
+          "end": "2023-09-27",
+          "year": "2023"
+        },
+        {
+          "start": "2023-10-09",
+          "end": "2023-10-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-04-18",
+          "end": "2024-09-28",
+          "year": "2024"
+        },
+        {
+          "start": "2024-10-08",
+          "end": "2024-11-08",
+          "year": "2024"
+        },
+        {
+          "start": "2025-04-01",
+          "end": "2025-04-08",
+          "year": "2025"
+        },
+        {
+          "start": "2025-04-16",
+          "end": "2025-09-24",
+          "year": "2025"
+        },
+        {
+          "start": "2025-10-06",
+          "end": "2025-10-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-04-01",
+          "end": "2026-04-10",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-18",
+          "end": "2026-09-25",
+          "year": "2026"
+        },
+        {
+          "start": "2026-10-11",
+          "end": "2026-11-04",
+          "year": "2026"
+        },
+        {
+          "start": "2027-04-01",
+          "end": "2027-04-10",
+          "year": "2027"
+        },
+        {
+          "start": "2027-04-18",
+          "end": "2027-09-25",
+          "year": "2027"
+        },
+        {
+          "start": "2027-10-11",
+          "end": "2027-11-04",
+          "year": "2027"
+        },
+        {
+          "start": "2028-04-18",
+          "end": "2028-09-27",
+          "year": "2028"
+        },
+        {
+          "start": "2029-04-18",
+          "end": "2029-09-27",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Mid Season",
+      "cn": "平季",
+      "periods": [
+        {
+          "start": "2023-03-01",
+          "end": "2023-03-31",
+          "year": "2023"
+        },
+        {
+          "start": "2023-11-01",
+          "end": "2023-12-13",
+          "year": "2023"
+        },
+        {
+          "start": "2024-02-01",
+          "end": "2024-02-08",
+          "year": "2024"
+        },
+        {
+          "start": "2024-02-16",
+          "end": "2024-04-10",
+          "year": "2024"
+        },
+        {
+          "start": "2024-11-09",
+          "end": "2024-12-22",
+          "year": "2024"
+        },
+        {
+          "start": "2025-02-05",
+          "end": "2025-03-31",
+          "year": "2025"
+        },
+        {
+          "start": "2025-11-01",
+          "end": "2025-11-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-01",
+          "end": "2025-12-21",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-25",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-02-13",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-21",
+          "end": "2026-03-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-11-05",
+          "end": "2026-12-21",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-25",
+          "end": "2027-02-09",
+          "year": "2027"
+        },
+        {
+          "start": "2027-02-17",
+          "end": "2027-03-31",
+          "year": "2027"
+        },
+        {
+          "start": "2027-11-05",
+          "end": "2027-12-21",
+          "year": "2027"
+        },
+        {
+          "start": "2028-03-01",
+          "end": "2028-03-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-03-01",
+          "end": "2029-03-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2023-01-01",
+          "end": "2023-01-20",
+          "year": "2023"
+        },
+        {
+          "start": "2023-09-28",
+          "end": "2023-10-08",
+          "year": "2023"
+        },
+        {
+          "start": "2023-12-14",
+          "end": "2023-12-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-01-01",
+          "end": "2024-01-31",
+          "year": "2024"
+        },
+        {
+          "start": "2024-09-29",
+          "end": "2024-10-07",
+          "year": "2024"
+        },
+        {
+          "start": "2024-12-23",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-28",
+          "year": "2025"
+        },
+        {
+          "start": "2025-09-25",
+          "end": "2025-10-05",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-22",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-24",
+          "year": "2026"
+        },
+        {
+          "start": "2026-09-26",
+          "end": "2026-10-10",
+          "year": "2026"
+        },
+        {
+          "start": "2026-12-22",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-01",
+          "end": "2027-01-03",
+          "year": "2027"
+        },
+        {
+          "start": "2027-01-04",
+          "end": "2027-01-24",
+          "year": "2027"
+        },
+        {
+          "start": "2027-09-26",
+          "end": "2027-10-10",
+          "year": "2027"
+        },
+        {
+          "start": "2027-12-22",
+          "end": "2027-12-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-01-01",
+          "end": "2028-01-20",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-01",
+          "end": "2029-01-20",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2023-04-11",
+          "end": "2023-04-17",
+          "year": "2023"
+        },
+        {
+          "start": "2024-02-09",
+          "end": "2024-02-15",
+          "year": "2024"
+        },
+        {
+          "start": "2024-04-11",
+          "end": "2024-04-17",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-29",
+          "end": "2025-02-04",
+          "year": "2025"
+        },
+        {
+          "start": "2025-04-09",
+          "end": "2025-04-15",
+          "year": "2025"
+        },
+        {
+          "start": "2026-02-14",
+          "end": "2026-02-20",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-11",
+          "end": "2026-04-17",
+          "year": "2026"
+        },
+        {
+          "start": "2027-02-10",
+          "end": "2027-02-16",
+          "year": "2027"
+        },
+        {
+          "start": "2027-04-11",
+          "end": "2027-04-17",
+          "year": "2027"
+        },
+        {
+          "start": "2028-04-11",
+          "end": "2028-04-17",
+          "year": "2028"
+        },
+        {
+          "start": "2029-04-11",
+          "end": "2029-04-17",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "R01": {
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1800,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 1200,
+          "title": "TUE-THU"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2750,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 2000,
+          "title": "TUE-THU"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1500,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 950,
+          "title": "TUE-THU"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3300,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 2300,
+          "title": "TUE-THU"
+        }
+      ]
+    },
+    "R04": {
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1800,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 1200,
+          "title": "TUE-THU"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2750,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 2000,
+          "title": "TUE-THU"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1500,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 950,
+          "title": "TUE-THU"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3300,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 2300,
+          "title": "TUE-THU"
+        }
+      ]
+    },
+    "2BR": {
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1900,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 1400,
+          "title": "TUE-THU"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2900,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 2100,
+          "title": "TUE-THU"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1600,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 1100,
+          "title": "TUE-THU"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3100,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 2400,
+          "title": "TUE-THU"
+        }
+      ]
+    },
+    "2BR_JAZ": {
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2600,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 1900,
+          "title": "TUE-THU"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 4000,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 3000,
+          "title": "TUE-THU"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2300,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 1600,
+          "title": "TUE-THU"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 4400,
+          "title": "MON, FRI, SAT, SUN"
+        },
+        {
+          "days": [
+            "TUE",
+            "WED",
+            "THU"
+          ],
+          "price": 3300,
+          "title": "TUE-THU"
+        }
+      ]
+    }
+  },
+  "closed": [],
+  "coverage_until": "2029-09-27"
+}

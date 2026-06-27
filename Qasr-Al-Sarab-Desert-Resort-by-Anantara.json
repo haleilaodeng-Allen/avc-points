@@ -1,0 +1,676 @@
+{
+  "hotel_name": "Platinum Escapes - Niyama Private Islands",
+  "hotel_code": "",
+  "updated": "2026-06-26",
+  "years": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "Beachstudio",
+      "name": "Beach Villa",
+      "max": 4
+    },
+    {
+      "code": "ROOM_12",
+      "name": "Deluxe Beach Villa",
+      "max": 4
+    },
+    {
+      "code": "Studio_Pool",
+      "name": "Beach Pool Villa",
+      "max": 4
+    },
+    {
+      "code": "ROOM_13",
+      "name": "Deluxe Beach Pool Villa",
+      "max": 4
+    },
+    {
+      "code": "WK",
+      "name": "Family Beach Pool Villa",
+      "max": 5
+    },
+    {
+      "code": "waterstudio",
+      "name": "Over Water Pool Villa",
+      "max": 4
+    },
+    {
+      "code": "dlx_waterstudio",
+      "name": "Deluxe Water Pool Villa",
+      "max": 4
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2020-01-01",
+          "end": "2020-01-08",
+          "year": "2020"
+        },
+        {
+          "start": "2020-12-23",
+          "end": "2020-12-31",
+          "year": "2020"
+        },
+        {
+          "start": "2021-01-01",
+          "end": "2021-01-08",
+          "year": "2021"
+        },
+        {
+          "start": "2021-12-23",
+          "end": "2021-12-31",
+          "year": "2021"
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2022-01-08",
+          "year": "2022"
+        },
+        {
+          "start": "2022-12-23",
+          "end": "2022-12-31",
+          "year": "2022"
+        },
+        {
+          "start": "2023-01-01",
+          "end": "2023-01-08",
+          "year": "2023"
+        },
+        {
+          "start": "2023-12-23",
+          "end": "2023-12-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-01-01",
+          "end": "2024-01-08",
+          "year": "2024"
+        },
+        {
+          "start": "2024-12-23",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-08",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-23",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-08",
+          "year": "2026"
+        },
+        {
+          "start": "2026-12-23",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-01",
+          "end": "2027-01-08",
+          "year": "2027"
+        },
+        {
+          "start": "2028-01-01",
+          "end": "2028-01-08",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-01",
+          "end": "2029-01-08",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2024-05-13",
+          "end": "2024-07-31",
+          "year": "2024"
+        },
+        {
+          "start": "2026-05-05",
+          "end": "2026-09-30",
+          "year": "2026"
+        },
+        {
+          "start": "2028-05-13",
+          "end": "2028-07-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-05-13",
+          "end": "2029-07-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2025-01-09",
+          "end": "2025-04-14",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-09",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-04-11",
+          "year": "2026"
+        },
+        {
+          "start": "2028-01-09",
+          "end": "2028-04-14",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-09",
+          "end": "2029-04-14",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Mid Season",
+      "cn": "平季",
+      "periods": [
+        {
+          "start": "2026-10-01",
+          "end": "2026-12-22",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-12",
+          "end": "2026-05-04",
+          "year": "2026"
+        },
+        {
+          "start": "2028-10-01",
+          "end": "2028-12-22",
+          "year": "2028"
+        },
+        {
+          "start": "2029-10-01",
+          "end": "2029-12-22",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "Beachstudio": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6900,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 8550,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 11000,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_12": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 7800,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 9700,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 12200,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "Studio_Pool": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 8000,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 10850,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 12900,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_13": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 8900,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 12600,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 15800,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "WK": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 9800,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 15650,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 19900,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "waterstudio": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 8000,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 10850,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 14050,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "dlx_waterstudio": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 8900,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 12600,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 15800,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [
+    "Beachstudio|Peak Season",
+    "ROOM_12|Peak Season",
+    "Studio_Pool|Peak Season",
+    "ROOM_13|Peak Season",
+    "WK|Peak Season",
+    "waterstudio|Peak Season",
+    "dlx_waterstudio|Peak Season"
+  ],
+  "coverage_until": "2029-12-22"
+}

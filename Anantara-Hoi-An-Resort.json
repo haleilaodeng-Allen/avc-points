@@ -1,0 +1,636 @@
+{
+  "hotel_name": "Anantara Golden Triangle Elephant Camp & Resort",
+  "hotel_code": "SOH75481",
+  "updated": "2026-06-26",
+  "years": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "Deluxe_3CV",
+      "name": "Deluxe Three Country View Room",
+      "max": 3
+    },
+    {
+      "code": "MEKONG_1",
+      "name": "Mekong Explorer Suite",
+      "max": 4
+    },
+    {
+      "code": "Family_s",
+      "name": "Mekong Explorer Family Suite (Exclusive)",
+      "max": 7
+    },
+    {
+      "code": "MEKONG_2",
+      "name": "Mekong Explorer Pool Suite (Exclusive)",
+      "max": 4
+    },
+    {
+      "code": "MEKONG_3",
+      "name": "Mekong Explorer Family Pool Suite (Exclusive)",
+      "max": 7
+    },
+    {
+      "code": "3_Country_Suite",
+      "name": "Three Country View Suite",
+      "max": 4
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Mid Season",
+      "cn": "平季",
+      "periods": [
+        {
+          "start": "2020-02-05",
+          "end": "2020-03-31",
+          "year": "2020"
+        },
+        {
+          "start": "2020-11-01",
+          "end": "2020-12-18",
+          "year": "2020"
+        },
+        {
+          "start": "2021-01-07",
+          "end": "2021-03-31",
+          "year": "2021"
+        },
+        {
+          "start": "2021-11-01",
+          "end": "2021-12-17",
+          "year": "2021"
+        },
+        {
+          "start": "2022-01-07",
+          "end": "2022-03-31",
+          "year": "2022"
+        },
+        {
+          "start": "2024-01-07",
+          "end": "2024-03-31",
+          "year": "2024"
+        },
+        {
+          "start": "2027-02-05",
+          "end": "2027-03-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-02-05",
+          "end": "2028-03-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-02-05",
+          "end": "2029-03-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2021-04-01",
+          "end": "2021-10-31",
+          "year": "2021"
+        },
+        {
+          "start": "2022-04-01",
+          "end": "2022-10-31",
+          "year": "2022"
+        },
+        {
+          "start": "2023-04-01",
+          "end": "2023-10-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-04-01",
+          "end": "2024-10-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-04-01",
+          "end": "2025-10-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-04-01",
+          "end": "2026-10-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-04-01",
+          "end": "2027-10-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-04-01",
+          "end": "2028-10-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-04-01",
+          "end": "2029-10-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2022-12-18",
+          "end": "2022-12-31",
+          "year": "2022"
+        },
+        {
+          "start": "2023-01-01",
+          "end": "2023-01-06",
+          "year": "2023"
+        },
+        {
+          "start": "2023-12-18",
+          "end": "2023-12-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-01-01",
+          "end": "2024-01-06",
+          "year": "2024"
+        },
+        {
+          "start": "2024-12-18",
+          "end": "2024-12-21",
+          "year": "2024"
+        },
+        {
+          "start": "2024-12-22",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-02",
+          "year": "2025"
+        },
+        {
+          "start": "2025-01-03",
+          "end": "2025-01-06",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-18",
+          "end": "2025-12-21",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-03",
+          "end": "2026-01-06",
+          "year": "2026"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2024-11-01",
+          "end": "2024-12-17",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-07",
+          "end": "2025-03-31",
+          "year": "2025"
+        },
+        {
+          "start": "2025-11-01",
+          "end": "2025-11-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-01",
+          "end": "2025-12-17",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-07",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-03-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-11-01",
+          "end": "2026-12-17",
+          "year": "2026"
+        },
+        {
+          "start": "2027-11-01",
+          "end": "2027-12-17",
+          "year": "2027"
+        },
+        {
+          "start": "2028-11-01",
+          "end": "2028-12-17",
+          "year": "2028"
+        },
+        {
+          "start": "2029-11-01",
+          "end": "2029-12-17",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "Deluxe_3CV": {
+      "Peak Season": [
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "THU-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 5650,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 4850,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "MEKONG_1": {
+      "Peak Season": [
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "THU-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 7500,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6650,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "Family_s": {
+      "Peak Season": [
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "THU-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 11850,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 9500,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "MEKONG_2": {
+      "Peak Season": [
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "THU-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 19450,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 17600,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "MEKONG_3": {
+      "Peak Season": [
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "THU-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 23900,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 22100,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "3_Country_Suite": {
+      "Peak Season": [
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "THU-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 5300,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6900,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [
+    "Deluxe_3CV|Peak Season",
+    "MEKONG_1|Peak Season",
+    "Family_s|Peak Season",
+    "MEKONG_2|Peak Season",
+    "MEKONG_3|Peak Season",
+    "3_Country_Suite|Peak Season",
+    "Deluxe_3CV|Mid Season",
+    "MEKONG_1|Mid Season",
+    "Family_s|Mid Season",
+    "MEKONG_2|Mid Season",
+    "MEKONG_3|Mid Season",
+    "3_Country_Suite|Mid Season"
+  ],
+  "coverage_until": "2029-12-17"
+}

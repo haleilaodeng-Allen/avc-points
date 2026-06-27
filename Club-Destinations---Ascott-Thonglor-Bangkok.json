@@ -1,0 +1,420 @@
+{
+  "hotel_name": "Club Destinations - Anmira Resort & Spa Hoi An by The Unlimited Collection",
+  "hotel_code": "",
+  "updated": "2026-06-26",
+  "years": [
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "ROOM_6",
+      "name": "Deluxe Room",
+      "max": 3
+    },
+    {
+      "code": "ROOM_2",
+      "name": "Premier Room",
+      "max": 4
+    },
+    {
+      "code": "ROOM_8",
+      "name": "Mira Suite",
+      "max": 4
+    },
+    {
+      "code": "ROOM_3",
+      "name": "Vista Suite",
+      "max": 4
+    },
+    {
+      "code": "ROOM_4",
+      "name": "Tropical Suite",
+      "max": 4
+    },
+    {
+      "code": "ROOM_7",
+      "name": "Family 2 bedroom",
+      "max": 4
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2025-05-01",
+          "end": "2025-06-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-09-01",
+          "end": "2025-10-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-04-01",
+          "end": "2026-04-15",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-16",
+          "end": "2026-04-22",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-23",
+          "end": "2026-04-29",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-30",
+          "end": "2026-05-02",
+          "year": "2026"
+        },
+        {
+          "start": "2026-05-03",
+          "end": "2026-08-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-09-01",
+          "end": "2026-09-02",
+          "year": "2026"
+        },
+        {
+          "start": "2026-09-03",
+          "end": "2026-10-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-04-01",
+          "end": "2027-10-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-05-01",
+          "end": "2028-06-30",
+          "year": "2028"
+        },
+        {
+          "start": "2029-05-01",
+          "end": "2029-06-30",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2025-01-01",
+          "end": "2025-04-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-07-01",
+          "end": "2025-08-31",
+          "year": "2025"
+        },
+        {
+          "start": "2025-11-01",
+          "end": "2025-11-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-01",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-02-07",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-08",
+          "end": "2026-02-14",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-15",
+          "end": "2026-02-19",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-20",
+          "end": "2026-03-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-11-01",
+          "end": "2026-12-30",
+          "year": "2026"
+        },
+        {
+          "start": "2026-12-31",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-01",
+          "end": "2027-03-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-01-01",
+          "end": "2028-04-30",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-01",
+          "end": "2029-04-30",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "ROOM_6": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "SUN"
+          ],
+          "price": 650,
+          "title": "MON, TUE, WED, SUN"
+        },
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "price": 750,
+          "title": "THU-SAT"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 550,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_2": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "SUN"
+          ],
+          "price": 750,
+          "title": "MON, TUE, WED, SUN"
+        },
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "price": 850,
+          "title": "THU-SAT"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 700,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_8": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "SUN"
+          ],
+          "price": 850,
+          "title": "MON, TUE, WED, SUN"
+        },
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "price": 950,
+          "title": "THU-SAT"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 750,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_3": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "SUN"
+          ],
+          "price": 900,
+          "title": "MON, TUE, WED, SUN"
+        },
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "price": 1000,
+          "title": "THU-SAT"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 850,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_4": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "SUN"
+          ],
+          "price": 1000,
+          "title": "MON, TUE, WED, SUN"
+        },
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "price": 1100,
+          "title": "THU-SAT"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 900,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_7": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "SUN"
+          ],
+          "price": 1100,
+          "title": "MON, TUE, WED, SUN"
+        },
+        {
+          "days": [
+            "THU",
+            "FRI",
+            "SAT"
+          ],
+          "price": 1200,
+          "title": "THU-SAT"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1050,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [],
+  "coverage_until": "2029-06-30"
+}

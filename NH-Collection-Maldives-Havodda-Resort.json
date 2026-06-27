@@ -1,0 +1,157 @@
+{
+  "hotel_name": "Global Travellers - Riviera Shores Resort",
+  "hotel_code": "AVC000119",
+  "updated": "2026-06-26",
+  "years": [
+    "2020",
+    "2021",
+    "2022",
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "Dlx_Studio_Ocean",
+      "name": "Deluxe Studio Ocean View",
+      "max": 4
+    },
+    {
+      "code": "1_Bed_Ocean_View",
+      "name": "One Bedroom Ocean View",
+      "max": 4
+    },
+    {
+      "code": "2_Bed_Non_Ocean",
+      "name": "Two Bedroom",
+      "max": 6
+    }
+  ],
+  "seasons": [
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2020-01-29",
+          "end": "2020-12-31",
+          "year": "2020"
+        },
+        {
+          "start": "2021-01-01",
+          "end": "2021-12-31",
+          "year": "2021"
+        },
+        {
+          "start": "2022-01-01",
+          "end": "2022-12-31",
+          "year": "2022"
+        },
+        {
+          "start": "2023-01-01",
+          "end": "2023-12-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-01-01",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-11-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-01",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-01",
+          "end": "2027-12-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-01-29",
+          "end": "2028-12-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-29",
+          "end": "2029-12-31",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "Dlx_Studio_Ocean": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1650,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "1_Bed_Ocean_View": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1730,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "2_Bed_Non_Ocean": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2340,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [],
+  "coverage_until": "2029-12-31"
+}

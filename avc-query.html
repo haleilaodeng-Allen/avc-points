@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>AVC 积分查询</title>
+<style>
+  :root{
+    --bg:#10100e; --panel:#191915; --panel2:#21211c; --line:#33332b;
+    --ink:#f0ede4; --dim:#9a978a; --dimmer:#6b6a5f;
+    --gold:#c8a25a; --gold-br:#e6c884; --sand:#d8cdb0;
+    --ok:#6db58a; --warn:#d99a3e; --closed:#b5614f;
+    --mono:'SF Mono',ui-monospace,'JetBrains Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    background:var(--bg);color:var(--ink);
+    font-family:'PingFang SC','Microsoft YaHei','Segoe UI',system-ui,sans-serif;
+    line-height:1.55;padding-bottom:60px;
+  }
+  .wrap{max-width:880px;margin:0 auto;padding:20px 16px}
+
+  /* 头部 */
+  header{padding:8px 0 18px;border-bottom:1px solid var(--line);margin-bottom:18px}
+  .brand{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+  .brand h1{font-size:21px;font-weight:700;letter-spacing:-.01em}
+  .brand .tag{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line);padding:2px 8px;border-radius:4px}
+  .meta{font-size:12px;color:var(--dim);margin-top:5px}
+  .meta b{color:var(--sand);font-weight:600}
+
+  /* 模式切换 */
+  .modes{display:flex;gap:8px;margin-bottom:18px}
+  .mode{flex:1;background:var(--panel);border:1px solid var(--line);color:var(--dim);
+    padding:13px 10px;border-radius:10px;font-size:14px;font-weight:600;cursor:pointer;
+    text-align:center;transition:.15s;line-height:1.3}
+  .mode small{display:block;font-size:11px;font-weight:400;color:var(--dimmer);margin-top:2px}
+  .mode.on{border-color:var(--gold);background:var(--panel2);color:var(--gold-br)}
+  .mode.on small{color:var(--dim)}
+
+  /* 表单卡片 */
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px}
+  .row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:13px}
+  .row:last-child{margin-bottom:0}
+  .fld{flex:1;min-width:130px}
+  label{display:block;font-size:12px;color:var(--dim);margin-bottom:6px;font-weight:500}
+  input,select{width:100%;background:var(--bg);border:1px solid var(--line);color:var(--ink);
+    padding:11px 12px;border-radius:8px;font-size:15px;font-family:inherit}
+  input:focus,select:focus{outline:none;border-color:var(--gold)}
+  input[type=date]{font-family:var(--mono);font-size:14px}
+  input[type=number]{font-family:var(--mono)}
+
+  .toggle-days{display:flex;gap:6px;align-items:center;margin-top:8px}
+  .chk{display:flex;align-items:center;gap:6px;font-size:13px;color:var(--dim);cursor:pointer}
+  .chk input{width:auto}
+
+  .btn{width:100%;background:var(--gold);color:#1a1206;border:none;padding:14px;border-radius:9px;
+    font-size:16px;font-weight:700;cursor:pointer;font-family:inherit;letter-spacing:.02em;margin-top:4px}
+  .btn:active{background:var(--gold-br)}
+
+  .seg{display:flex;background:var(--bg);border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .seg button{flex:1;background:transparent;border:none;color:var(--dim);padding:9px;font-size:13px;
+    cursor:pointer;font-family:inherit;font-weight:500}
+  .seg button.on{background:var(--panel2);color:var(--gold-br)}
+
+  /* 结果 */
+  .results{margin-top:8px}
+  .res-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;padding:0 2px}
+  .res-head .n{font-size:13px;color:var(--dim)}
+  .res-head .n b{color:var(--gold-br);font-family:var(--mono);font-size:16px}
+
+  .hotel-card{background:var(--panel);border:1px solid var(--line);border-radius:11px;
+    padding:14px 15px;margin-bottom:11px}
+  .hc-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}
+  .hc-name{font-size:15px;font-weight:600;color:var(--ink);line-height:1.3}
+  .hc-room{font-size:13px;color:var(--dim);margin-top:2px}
+  .hc-pts{text-align:right;flex-shrink:0}
+  .hc-pts .big{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--gold-br);line-height:1}
+  .hc-pts .unit{font-size:11px;color:var(--dim)}
+  .hc-pts .per{font-size:11px;color:var(--dimmer);margin-top:3px}
+
+  .nights{margin-top:11px;padding-top:11px;border-top:1px dashed var(--line);
+    display:none;font-size:12px;color:var(--dim)}
+  .nights.show{display:block}
+  .night-row{display:flex;justify-content:space-between;padding:2px 0;font-family:var(--mono)}
+  .night-row .s{font-size:10px;padding:0 6px;border-radius:3px;margin-left:6px}
+  .s-low{background:rgba(109,181,138,.15);color:var(--ok)}
+  .s-mid{background:rgba(200,162,90,.15);color:var(--gold)}
+  .s-high{background:rgba(217,154,62,.15);color:var(--warn)}
+  .s-peak{background:rgba(181,97,79,.18);color:var(--closed)}
+
+  .expand{font-size:11px;color:var(--gold);cursor:pointer;margin-top:9px;display:inline-block}
+
+  .closed-tag{display:inline-block;font-size:11px;color:var(--closed);border:1px solid rgba(181,97,79,.3);
+    padding:2px 8px;border-radius:4px;background:rgba(181,97,79,.08)}
+
+  .empty{text-align:center;padding:40px 20px;color:var(--dimmer)}
+  .empty .big{font-size:15px;color:var(--dim);margin-bottom:6px}
+
+  .note{font-size:12px;color:var(--dimmer);margin-top:14px;padding:11px 13px;
+    background:var(--panel);border-radius:8px;border:1px solid var(--line);line-height:1.5}
+
+  .loading{text-align:center;padding:30px;color:var(--dim);font-size:14px}
+
+  /* 数据加载区（首次配置用） */
+  .setup{background:var(--panel);border:1px dashed var(--line);border-radius:12px;padding:18px;margin-bottom:16px}
+  .setup h3{font-size:14px;margin-bottom:8px;color:var(--gold-br)}
+  .setup p{font-size:12px;color:var(--dim);margin-bottom:12px;line-height:1.5}
+  .setup textarea{width:100%;height:90px;background:var(--bg);border:1px solid var(--line);
+    color:var(--ink);border-radius:8px;padding:10px;font-family:var(--mono);font-size:11px;resize:vertical}
+  code{font-family:var(--mono);background:var(--panel2);padding:1px 5px;border-radius:4px;font-size:11px;color:var(--sand)}
+
+  @media(max-width:480px){
+    .wrap{padding:14px 12px}
+    .brand h1{font-size:19px}
+    .mode{font-size:13px;padding:11px 6px}
+    .fld{min-width:110px}
+  }
+
+  /* 日期三联下拉 */
+  .datesel{display:flex;gap:6px}
+  .datesel select{flex:1;padding:11px 6px;text-align:center;background:var(--bg);
+    border:1px solid var(--line);color:var(--ink);border-radius:8px;font-size:15px;
+    font-family:var(--mono);min-width:0;-webkit-appearance:none;appearance:none}
+  .datesel select.y{flex:1.3}
+  .datesel select:focus{outline:none;border-color:var(--gold)}
+
+  /* 预算步进器 */
+  .stepper{display:flex;gap:6px;align-items:stretch}
+  .stepper input{flex:1;text-align:center}
+  .step-btn{width:44px;flex-shrink:0;background:var(--panel2);border:1px solid var(--line);
+    color:var(--gold-br);font-size:20px;border-radius:8px;cursor:pointer;font-weight:600;
+    line-height:1;display:flex;align-items:center;justify-content:center}
+  .step-btn:active{background:var(--gold);color:#1a1206}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="brand">
+      <h1>积分查询</h1>
+      <span class="tag">Anantara Vacation Club</span>
+    </div>
+    <div class="meta" id="metaLine">加载数据中…</div>
+  </header>
+
+  <!-- 数据源配置（仅在没数据时显示） -->
+  <div class="setup" id="setupBox" style="display:none">
+    <h3>接入数据</h3>
+    <p>填你 GitHub 上 <code>hotels/</code> 文件夹的地址,系统会自动读取里面所有酒店。配置一次即可,以后自动加载。也可临时粘贴数据测试。</p>
+    <div class="fld" style="margin-bottom:10px">
+      <label>hotels 文件夹地址(到 hotels/ 为止)</label>
+      <input type="text" id="dataUrl" placeholder="https://raw.githubusercontent.com/用户名/仓库/main/hotels/">
+    </div>
+    <label>或直接粘贴数据(一个酒店对象 或 多个酒店的数组)</label>
+    <textarea id="dataPaste" placeholder='[{"hotel_name":...}, {...}]'></textarea>
+    <button class="btn" id="loadBtn" style="margin-top:12px">载入数据</button>
+  </div>
+
+  <!-- 模式切换 -->
+  <div class="modes" id="modeBox" style="display:none">
+    <div class="mode on" data-mode="budget">按预算横扫<small>查 X 分以下有哪些</small></div>
+    <div class="mode" data-mode="calc">按酒店算账<small>算这趟要多少分</small></div>
+  </div>
+
+  <!-- 预算横扫表单 -->
+  <div class="card" id="budgetForm" style="display:none">
+    <div class="row">
+      <div class="fld">
+        <label>预算上限(分)</label>
+        <div class="stepper">
+          <button type="button" class="step-btn" data-step="bMax" data-d="-100">−</button>
+          <input type="number" id="bMax" placeholder="例:1500" inputmode="numeric" step="100">
+          <button type="button" class="step-btn" data-step="bMax" data-d="100">+</button>
+        </div>
+      </div>
+      <div class="fld">
+        <label>日期方式</label>
+        <div class="seg" id="bDateMode">
+          <button class="on" data-dm="single">单日</button>
+          <button data-dm="range">日期段</button>
+        </div>
+      </div>
+    </div>
+    <div class="row" id="bSingleRow">
+      <div class="fld">
+        <label>入住日期</label>
+        <div class="datesel" id="bDate"></div>
+      </div>
+    </div>
+    <div class="row" id="bRangeRow" style="display:none">
+      <div class="fld">
+        <label>入住</label>
+        <div class="datesel" id="bIn"></div>
+      </div>
+      <div class="fld">
+        <label>退房</label>
+        <div class="datesel" id="bOut"></div>
+      </div>
+    </div>
+    <button class="btn" id="bRun">查符合的酒店</button>
+  </div>
+
+  <!-- 算账表单 -->
+  <div class="card" id="calcForm" style="display:none">
+    <div class="row">
+      <div class="fld">
+        <label>酒店</label>
+        <select id="cHotel"></select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="fld">
+        <label>房型</label>
+        <select id="cRoom"></select>
+      </div>
+    </div>
+    <div class="row">
+      <div class="fld">
+        <label>入住</label>
+        <div class="datesel" id="cIn"></div>
+      </div>
+      <div class="fld">
+        <label>退房</label>
+        <div class="datesel" id="cOut"></div>
+      </div>
+    </div>
+    <button class="btn" id="cRun">算这趟多少分</button>
+  </div>
+
+  <!-- 结果区 -->
+  <div class="results" id="results"></div>
+</div>
+
+<script>
+//==================== 内嵌数据（部署时填这里，最高优先级）====================
+var EMBEDDED_DATA = [];
+// 部署时填你的 hotels 文件夹地址，填好后任何人打开都自动加载（推荐）
+var DATA_FOLDER = "";
+
+//==================== 数据与核心算法 ====================
+const DAYMAP=['MON','TUE','WED','THU','FRI','SAT','SUN']; // JS getDay(): 0=日,1=一… 需转换
+const SEASON_CLS={'Low Season':'s-low','Mid Season':'s-mid','High Season':'s-high','Peak Season':'s-peak'};
+const SEASON_CN={'Low Season':'淡季','Mid Season':'平季','High Season':'旺季','Peak Season':'高峰季'};
+
+let HOTELS = [];  // 全部酒店数据
+
+// 把日期转成数据里的 MON..SUN（用 UTC，避免时区把星期算错）
+function dowCode(dateStr){
+  const [y,m,d]=dateStr.split('-').map(Number);
+  const js=new Date(Date.UTC(y,m-1,d)).getUTCDay(); // 0=周日
+  return DAYMAP[(js+6)%7]; // 周日(0)->SUN, 周一(1)->MON
+}
+function fmtDate(d){return d;}
+// 纯字符串加 n 天，不碰时区。输入输出都是 'YYYY-MM-DD'
+function addDays(dateStr, n){
+  const [y,m,d]=dateStr.split('-').map(Number);
+  const dt=new Date(Date.UTC(y,m-1,d));      // 用 UTC 构造，避开本地时区
+  dt.setUTCDate(dt.getUTCDate()+n);
+  return dt.toISOString().slice(0,10);
+}
+function eachDate(inStr,outStr){
+  // 返回 入住到退房前一晚 的每一晚日期（退房日不计），纯字符串比较
+  const out=[]; let cur=inStr;
+  while(cur<outStr){ out.push(cur); cur=addDays(cur,1); }
+  return out;
+}
+function findSeason(hotel,dateStr){
+  for(const s of hotel.seasons){
+    for(const p of s.periods){ if(p.start<=dateStr && dateStr<=p.end) return s.name; }
+  }
+  return null;
+}
+// 算某房型某一晚的分。返回 {price, season} 或 {price:null, reason}
+function priceForNight(hotel,roomCode,dateStr){
+  const season=findSeason(hotel,dateStr);
+  if(!season) return {price:null,reason:'该日期无数据'};
+  const cols=(hotel.prices[roomCode]||{})[season];
+  if(!cols) return {price:null,reason:season+'无价'};
+  const dc=dowCode(dateStr);
+  for(const c of cols){
+    if(c.days.includes(dc)){
+      if(c.price===0) return {price:null,reason:SEASON_CN[season]+'不开放',season,closed:true};
+      return {price:c.price,season};
+    }
+  }
+  return {price:null,reason:'无匹配档位'};
+}
+// 算某房型某段日期总分。返回 {total, nights:[{date,price,season}], ok, blocker}
+function calcStay(hotel,roomCode,inStr,outStr){
+  const dates=eachDate(inStr,outStr);
+  if(dates.length===0) return {ok:false,blocker:'退房需晚于入住'};
+  let total=0; const nights=[];
+  for(const d of dates){
+    const r=priceForNight(hotel,roomCode,d);
+    if(r.price===null){
+      return {ok:false,blocker:r.reason,failDate:d,nights};
+    }
+    total+=r.price; nights.push({date:d,price:r.price,season:r.season});
+  }
+  return {ok:true,total,nights};
+}
+
+//==================== 渲染 ====================
+const $=id=>document.getElementById(id);
+
+// 日期三联下拉：根据数据覆盖范围生成 年/月/日 下拉
+let DATE_MIN_YEAR=2026, DATE_MAX_YEAR=2027;
+function computeYearRange(){
+  let minY=9999,maxY=0;
+  HOTELS.forEach(h=>(h.years||[]).forEach(y=>{
+    const n=parseInt(y); if(n<minY)minY=n; if(n>maxY)maxY=n;
+  }));
+  // 下限不早于今年
+  const thisYear=new Date().getFullYear();
+  DATE_MIN_YEAR=Math.max(minY===9999?thisYear:minY, thisYear);
+  DATE_MAX_YEAR=maxY===0?thisYear+1:maxY;
+}
+function buildDateSel(id, defStr){
+  const el=$(id); if(!el) return;
+  const [dy,dm,dd]=(defStr||'').split('-');
+  let yOpt='',mOpt='',dOpt='';
+  for(let y=DATE_MIN_YEAR;y<=DATE_MAX_YEAR;y++) yOpt+=`<option value="${y}" ${y==dy?'selected':''}>${y}</option>`;
+  for(let m=1;m<=12;m++){const mm=String(m).padStart(2,'0');mOpt+=`<option value="${mm}" ${mm==dm?'selected':''}>${m}月</option>`;}
+  for(let d=1;d<=31;d++){const dd2=String(d).padStart(2,'0');dOpt+=`<option value="${dd2}" ${dd2==dd?'selected':''}>${d}日</option>`;}
+  el.innerHTML=`<select class="y" data-part="y">${yOpt}</select>
+    <select data-part="m">${mOpt}</select>
+    <select data-part="d">${dOpt}</select>`;
+}
+function getDateValue(id){
+  const el=$(id); if(!el) return '';
+  const y=el.querySelector('[data-part=y]').value;
+  const m=el.querySelector('[data-part=m]').value;
+  const d=el.querySelector('[data-part=d]').value;
+  return `${y}-${m}-${d}`;
+}
+
+function showMeta(){
+  const totalRooms=HOTELS.reduce((s,h)=>s+h.rooms.length,0);
+  let cov=''; HOTELS.forEach(h=>{if(h.coverage_until>cov)cov=h.coverage_until;});
+  let minCov='9999'; HOTELS.forEach(h=>{if(h.coverage_until&&h.coverage_until<minCov)minCov=h.coverage_until;});
+  $('metaLine').innerHTML=`<b>${HOTELS.length}</b> 家酒店 · <b>${totalRooms}</b> 个房型 · 数据覆盖至 <b>${minCov==='9999'?cov:minCov}</b>`;
+}
+
+function weekdayCN(dateStr){
+  const [y,m,d]=dateStr.split('-').map(Number);
+  return '周'+['日','一','二','三','四','五','六'][new Date(Date.UTC(y,m-1,d)).getUTCDay()];
+}
+
+// 预算横扫
+function runBudget(){
+  const max=parseInt($('bMax').value);
+  if(!max||max<=0){ alert('请填预算上限'); return; }
+  const mode=$('bDateMode').querySelector('.on').dataset.dm;
+  let inStr,outStr,nightsCount;
+  if(mode==='single'){
+    inStr=getDateValue('bDate');
+    if(!inStr){alert('请选日期');return;}
+    // 单日 = 当晚一晚（退房=次日）
+    outStr=addDays(inStr,1); nightsCount=1;
+  } else {
+    inStr=getDateValue('bIn'); outStr=getDateValue('bOut');
+    if(!inStr||!outStr){alert('请选入住和退房');return;}
+    nightsCount=eachDate(inStr,outStr).length;
+    if(nightsCount<=0){alert('退房需晚于入住');return;}
+  }
+
+  // 扫所有酒店所有房型
+  const hits=[];
+  HOTELS.forEach(h=>{
+    h.rooms.forEach(rm=>{
+      const r=calcStay(h,rm.code,inStr,outStr);
+      if(r.ok && r.total<=max){
+        hits.push({hotel:h,room:rm,total:r.total,nights:r.nights});
+      }
+    });
+  });
+  hits.sort((a,b)=>a.total-b.total);
+
+  renderBudgetResults(hits,max,inStr,outStr,nightsCount);
+}
+
+function renderBudgetResults(hits,max,inStr,outStr,nightsCount){
+  const box=$('results');
+  if(hits.length===0){
+    box.innerHTML=`<div class="empty"><div class="big">没有符合的房型</div>
+      <div>${max} 分 / ${nightsCount} 晚以内,这些日期没有可订的。试试提高预算或换日期。</div></div>`;
+    return;
+  }
+  let html=`<div class="res-head"><div class="n"><b>${hits.length}</b> 个房型在预算内</div>
+    <div class="n">${nightsCount} 晚 · ≤ ${max} 分</div></div>`;
+  hits.forEach((hit,i)=>{
+    const perNight=Math.round(hit.total/nightsCount);
+    html+=`<div class="hotel-card">
+      <div class="hc-top">
+        <div>
+          <div class="hc-name">${hit.hotel.hotel_name||'(未命名)'}</div>
+          <div class="hc-room">${hit.room.name} · 最多${hit.room.max}人</div>
+        </div>
+        <div class="hc-pts">
+          <div class="big">${hit.total.toLocaleString()}</div>
+          <div class="unit">分 / ${nightsCount}晚</div>
+          <div class="per">约 ${perNight.toLocaleString()}/晚</div>
+        </div>
+      </div>
+      ${nightsCount>1?`<span class="expand" onclick="this.nextElementSibling.classList.toggle('show')">查看每晚明细 ▾</span>
+      <div class="nights">${hit.nights.map(n=>`<div class="night-row"><span>${n.date} ${weekdayCN(n.date)}</span><span>${n.price.toLocaleString()} 分<span class="s ${SEASON_CLS[n.season]||''}">${SEASON_CN[n.season]||''}</span></span></div>`).join('')}</div>`:''}
+    </div>`;
+  });
+  box.innerHTML=html;
+}
+
+// 按酒店算账
+function runCalc(){
+  const hi=$('cHotel').value, rc=$('cRoom').value;
+  const inStr=getDateValue('cIn'), outStr=getDateValue('cOut');
+  if(!inStr||!outStr){alert('请选入住和退房');return;}
+  const hotel=HOTELS[hi];
+  const r=calcStay(hotel,rc,inStr,outStr);
+  const box=$('results');
+  const room=hotel.rooms.find(x=>x.code===rc);
+
+  if(!r.ok){
+    box.innerHTML=`<div class="empty"><div class="big">${r.blocker}</div>
+      <div>${r.failDate?r.failDate+' 这晚无法预订。':''}这段日期里有无法预订的晚数,换个日期试试。</div></div>`;
+    return;
+  }
+  const nightsCount=r.nights.length;
+  const perNight=Math.round(r.total/nightsCount);
+  let html=`<div class="hotel-card">
+    <div class="hc-top">
+      <div><div class="hc-name">${hotel.hotel_name||'(未命名)'}</div>
+        <div class="hc-room">${room.name} · ${inStr} → ${outStr}</div></div>
+      <div class="hc-pts"><div class="big">${r.total.toLocaleString()}</div>
+        <div class="unit">分 / ${nightsCount}晚</div>
+        <div class="per">约 ${perNight.toLocaleString()}/晚</div></div>
+    </div>
+    <div class="nights show">${r.nights.map(n=>`<div class="night-row"><span>${n.date} ${weekdayCN(n.date)}</span><span>${n.price.toLocaleString()} 分<span class="s ${SEASON_CLS[n.season]||''}">${SEASON_CN[n.season]||''}</span></span></div>`).join('')}</div>
+  </div>`;
+  box.innerHTML=html;
+}
+
+function fillHotelSelect(){
+  const sel=$('cHotel');
+  sel.innerHTML=HOTELS.map((h,i)=>`<option value="${i}">${h.hotel_name||'(未命名)'}</option>`).join('');
+  fillRoomSelect();
+}
+function fillRoomSelect(){
+  const h=HOTELS[$('cHotel').value];
+  $('cRoom').innerHTML=h.rooms.map(r=>`<option value="${r.code}">${r.name}</option>`).join('');
+}
+
+//==================== 数据加载 ====================
+function normalizeData(raw){
+  // 接受 单个对象 / 数组 / {hotels:[...]}
+  let arr;
+  if(Array.isArray(raw)) arr=raw;
+  else if(raw.hotels&&Array.isArray(raw.hotels)) arr=raw.hotels;
+  else arr=[raw];
+  // 基本校验
+  return arr.filter(h=>h&&h.rooms&&h.seasons&&h.prices);
+}
+function initApp(){
+  $('setupBox').style.display='none';
+  $('modeBox').style.display='flex';
+  $('budgetForm').style.display='block';
+  showMeta();
+  fillHotelSelect();
+  // 计算日期范围，构建所有日期下拉
+  computeYearRange();
+  // 默认日期 = 今天（若早于数据范围则用范围起点）
+  let today=new Date();
+  let defStr=today.getUTCFullYear()+'-'+String(today.getMonth()+1).padStart(2,'0')+'-'+String(today.getDate()).padStart(2,'0');
+  if(parseInt(defStr.slice(0,4))<DATE_MIN_YEAR) defStr=DATE_MIN_YEAR+'-01-01';
+  const defOut=addDays(defStr,1);
+  buildDateSel('bDate',defStr);
+  buildDateSel('bIn',defStr);
+  buildDateSel('bOut',defOut);
+  buildDateSel('cIn',defStr);
+  buildDateSel('cOut',defOut);
+}
+// 从文件夹基础地址加载：先读 index.json，再按清单加载每家酒店
+// baseUrl 形如 https://raw.githubusercontent.com/用户/仓库/main/hotels/
+async function loadFromFolder(baseUrl){
+  if(!baseUrl.endsWith('/')) baseUrl+='/';
+  const idxUrl=baseUrl+'index.json';
+  const idxResp=await fetch(idxUrl);
+  if(!idxResp.ok) throw new Error('读不到 index.json('+idxResp.status+')');
+  const list=await idxResp.json();
+  const files=Array.isArray(list)?list:(list.hotels||[]);
+  if(!files.length) throw new Error('index.json 是空的');
+  // 并发加载所有酒店文件
+  const results=await Promise.allSettled(
+    files.map(f=>fetch(baseUrl+encodeURIComponent(f)).then(r=>{
+      if(!r.ok) throw new Error(f+' 加载失败');
+      return r.json();
+    }))
+  );
+  const hotels=[]; const failed=[];
+  results.forEach((res,i)=>{
+    if(res.status==='fulfilled') hotels.push(res.value);
+    else failed.push(files[i]);
+  });
+  return {hotels:normalizeData(hotels), failed};
+}
+
+function loadFromInput(){
+  const url=$('dataUrl').value.trim();
+  const paste=$('dataPaste').value.trim();
+  if(url){
+    $('results').innerHTML='<div class="loading">从 GitHub 载入中…</div>';
+    loadFromFolder(url).then(({hotels,failed})=>{
+      if(hotels.length===0){$('results').innerHTML='';alert('没加载到有效酒店,检查 index.json 和文件');return;}
+      HOTELS=hotels;
+      try{localStorage.setItem('avc_folder_url',url);}catch(e){}
+      $('results').innerHTML='';
+      initApp();
+      if(failed.length) setTimeout(()=>alert('注意:'+failed.length+' 个文件没加载成功:\n'+failed.join('\n')),300);
+    }).catch(e=>{
+      $('results').innerHTML='';
+      alert('载入失败:'+e.message+'\n\n检查:\n1) 地址是否到 hotels/ 文件夹\n2) 是否是 raw.githubusercontent.com 地址\n3) 仓库是否公开\n4) hotels/ 里有没有 index.json');
+    });
+  } else if(paste){
+    try{
+      HOTELS=normalizeData(JSON.parse(paste));
+      if(HOTELS.length===0){alert('数据为空或格式不对');return;}
+      initApp();
+    }catch(e){ alert('JSON 解析失败:'+e.message); }
+  } else {
+    alert('填文件夹地址或粘贴数据');
+  }
+}
+
+//==================== 事件绑定 ====================
+$('loadBtn').onclick=loadFromInput;
+
+// 模式切换
+$('modeBox').querySelectorAll('.mode').forEach(m=>{
+  m.onclick=()=>{
+    $('modeBox').querySelectorAll('.mode').forEach(x=>x.classList.remove('on'));
+    m.classList.add('on');
+    const mode=m.dataset.mode;
+    $('budgetForm').style.display=mode==='budget'?'block':'none';
+    $('calcForm').style.display=mode==='calc'?'block':'none';
+    $('results').innerHTML='';
+  };
+});
+// 预算日期方式切换
+$('bDateMode').querySelectorAll('button').forEach(b=>{
+  b.onclick=()=>{
+    $('bDateMode').querySelectorAll('button').forEach(x=>x.classList.remove('on'));
+    b.classList.add('on');
+    const dm=b.dataset.dm;
+    $('bSingleRow').style.display=dm==='single'?'flex':'none';
+    $('bRangeRow').style.display=dm==='range'?'flex':'none';
+  };
+});
+$('bRun').onclick=runBudget;
+$('cRun').onclick=runCalc;
+$('cHotel').onchange=fillRoomSelect;
+
+// 预算步进器 +/- 100
+document.querySelectorAll('.step-btn').forEach(b=>{
+  b.onclick=()=>{
+    const inp=$(b.dataset.step);
+    const cur=parseInt(inp.value)||0;
+    const next=Math.max(0, cur+parseInt(b.dataset.d));
+    inp.value=next;
+  };
+});
+
+//==================== 启动：尝试自动加载 ====================
+(function boot(){
+  // 1) 内嵌数据优先（演示/离线用）
+  if(typeof EMBEDDED_DATA!=='undefined' && EMBEDDED_DATA.length){
+    HOTELS=normalizeData(EMBEDDED_DATA); initApp(); return;
+  }
+  // 2) 部署时写死的文件夹地址（最省心：填好后任何人打开都自动加载）
+  if(typeof DATA_FOLDER!=='undefined' && DATA_FOLDER){
+    $('metaLine').textContent='从 GitHub 载入中…';
+    loadFromFolder(DATA_FOLDER).then(({hotels,failed})=>{
+      if(hotels.length){HOTELS=hotels;initApp();
+        if(failed.length)setTimeout(()=>alert(failed.length+' 个文件没加载:\n'+failed.join('\n')),300);
+      }else showSetup();
+    }).catch(()=>showSetup());
+    return;
+  }
+  // 3) 上次记住的文件夹地址
+  let saved=null;
+  try{saved=localStorage.getItem('avc_folder_url');}catch(e){}
+  if(saved){
+    $('dataUrl').value=saved;
+    $('metaLine').textContent='从 GitHub 载入中…';
+    loadFromFolder(saved).then(({hotels})=>{
+      if(hotels.length){HOTELS=hotels;initApp();}else showSetup();
+    }).catch(()=>showSetup());
+    return;
+  }
+  // 4) 没有任何数据源 → 显示配置区
+  showSetup();
+})();
+function showSetup(){
+  $('metaLine').textContent='首次使用,请接入数据';
+  $('setupBox').style.display='block';
+}
+</script>
+</body>
+</html>

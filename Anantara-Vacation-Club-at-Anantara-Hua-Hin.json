@@ -1,0 +1,323 @@
+{
+  "hotel_name": "Anantara Ubud Bali Resort",
+  "hotel_code": "",
+  "updated": "2026-06-26",
+  "years": [
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "ROOM_1",
+      "name": "Premier Room",
+      "max": 3
+    },
+    {
+      "code": "ROOM_2",
+      "name": "Forest View Room",
+      "max": 3
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2024-12-21",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-05",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-20",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-05",
+          "year": "2026"
+        },
+        {
+          "start": "2026-12-20",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-01",
+          "end": "2027-01-05",
+          "year": "2027"
+        }
+      ]
+    },
+    {
+      "name": "CNY",
+      "cn": "CNY",
+      "periods": [
+        {
+          "start": "2025-01-27",
+          "end": "2025-02-02",
+          "year": "2025"
+        },
+        {
+          "start": "2028-01-27",
+          "end": "2028-02-02",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-27",
+          "end": "2029-02-02",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2026-01-06",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-03-18",
+          "year": "2026"
+        },
+        {
+          "start": "2026-03-29",
+          "end": "2026-06-30",
+          "year": "2026"
+        },
+        {
+          "start": "2026-09-01",
+          "end": "2026-12-19",
+          "year": "2026"
+        },
+        {
+          "start": "2028-01-06",
+          "end": "2028-03-18",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-06",
+          "end": "2029-03-18",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2026-07-01",
+          "end": "2026-08-31",
+          "year": "2026"
+        },
+        {
+          "start": "2028-07-01",
+          "end": "2028-08-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-07-01",
+          "end": "2029-08-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Mid Season",
+      "cn": "平季",
+      "periods": [
+        {
+          "start": "2026-03-19",
+          "end": "2026-03-28",
+          "year": "2026"
+        },
+        {
+          "start": "2028-03-19",
+          "end": "2028-03-28",
+          "year": "2028"
+        },
+        {
+          "start": "2029-03-19",
+          "end": "2029-03-28",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "ROOM_1": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3750,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2750,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3150,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2900,
+          "title": "MON-SUN"
+        }
+      ],
+      "CNY": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "ROOM_2": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3950,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2950,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3350,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3050,
+          "title": "MON-SUN"
+        }
+      ],
+      "CNY": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [
+    "ROOM_1|CNY",
+    "ROOM_2|CNY"
+  ],
+  "coverage_until": "2029-08-31"
+}

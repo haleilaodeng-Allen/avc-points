@@ -1,0 +1,429 @@
+{
+  "hotel_name": "The Royal Livingstone Victoria Falls Zambia Hotel by Anantara",
+  "hotel_code": "",
+  "updated": "2026-06-26",
+  "years": [
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "PR",
+      "name": "Premier Garden Balcony Room",
+      "max": 3
+    },
+    {
+      "code": "PREMIER_",
+      "name": "Premier Garden Terrace Room",
+      "max": 3
+    },
+    {
+      "code": "Dlx",
+      "name": "Deluxe Zambezi River Balcony Room",
+      "max": 3
+    },
+    {
+      "code": "DELUXE_Z",
+      "name": "Deluxe Zambezi River Terrace Room (Exclusive)",
+      "max": 3
+    },
+    {
+      "code": "Dlx_Corner",
+      "name": "Executive Garden Room (Exclusive)",
+      "max": 3
+    },
+    {
+      "code": "EXECUTIV",
+      "name": "Executive Zambezi River Room (Exclusive)",
+      "max": 3
+    },
+    {
+      "code": "LIVINGST",
+      "name": "Livingstone Junior Suite",
+      "max": 3
+    },
+    {
+      "code": "LivSuite",
+      "name": "Livingstone Suite (Exclusive)",
+      "max": 3
+    },
+    {
+      "code": "ROOM_4",
+      "name": "Presidential Suite (Exclusive)",
+      "max": 3
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Standard Season",
+      "cn": "Standard Season",
+      "periods": [
+        {
+          "start": "2024-10-01",
+          "end": "2024-12-22",
+          "year": "2024"
+        },
+        {
+          "start": "2025-02-01",
+          "end": "2025-04-17",
+          "year": "2025"
+        },
+        {
+          "start": "2025-04-22",
+          "end": "2025-06-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-10-01",
+          "end": "2025-11-30",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-01",
+          "end": "2025-12-22",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-03",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-04-02",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-07",
+          "end": "2026-06-30",
+          "year": "2026"
+        },
+        {
+          "start": "2026-10-01",
+          "end": "2026-12-22",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-03",
+          "end": "2027-01-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-10-01",
+          "end": "2028-12-22",
+          "year": "2028"
+        },
+        {
+          "start": "2029-10-01",
+          "end": "2029-12-22",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2024-12-23",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-04",
+          "year": "2025"
+        },
+        {
+          "start": "2025-04-18",
+          "end": "2025-04-21",
+          "year": "2025"
+        },
+        {
+          "start": "2025-07-01",
+          "end": "2025-09-30",
+          "year": "2025"
+        },
+        {
+          "start": "2026-04-03",
+          "end": "2026-04-06",
+          "year": "2026"
+        },
+        {
+          "start": "2026-07-01",
+          "end": "2026-09-30",
+          "year": "2026"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "PR": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6000,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6900,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "PREMIER_": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6400,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 7350,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "Dlx": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 8450,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 10100,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "DELUXE_Z": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 9150,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 10850,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "Dlx_Corner": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 9500,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 11200,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "EXECUTIV": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 6550,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 7400,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "LIVINGST": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 15100,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 16400,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "LivSuite": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 19450,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 22350,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    },
+    "ROOM_4": {
+      "Standard Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 24700,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 29600,
+          "title": "MON, FRI, SAT, SUN"
+        }
+      ]
+    }
+  },
+  "closed": [],
+  "coverage_until": "2029-12-22"
+}

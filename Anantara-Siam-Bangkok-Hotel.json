@@ -1,0 +1,240 @@
+{
+  "hotel_name": "Anantara Mui Ne Resort",
+  "hotel_code": "",
+  "updated": "2026-06-26",
+  "years": [
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "Deluxe_Room",
+      "name": "Deluxe Room",
+      "max": 3
+    },
+    {
+      "code": "DeluxeOcean",
+      "name": "Deluxe Ocean Room",
+      "max": 3
+    }
+  ],
+  "seasons": [
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2025-05-04",
+          "end": "2025-10-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-05-04",
+          "end": "2026-10-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-05-04",
+          "end": "2027-10-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-05-04",
+          "end": "2028-10-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-05-04",
+          "end": "2029-10-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2025-01-03",
+          "end": "2025-01-28",
+          "year": "2025"
+        },
+        {
+          "start": "2025-02-04",
+          "end": "2025-05-03",
+          "year": "2025"
+        },
+        {
+          "start": "2026-11-01",
+          "end": "2026-12-23",
+          "year": "2026"
+        },
+        {
+          "start": "2026-01-08",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-03-03",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-03",
+          "end": "2027-01-28",
+          "year": "2027"
+        },
+        {
+          "start": "2028-01-03",
+          "end": "2028-01-28",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-03",
+          "end": "2029-01-28",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2025-01-29",
+          "end": "2025-02-03",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-24",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-07",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-29",
+          "end": "2027-02-03",
+          "year": "2027"
+        },
+        {
+          "start": "2028-01-29",
+          "end": "2028-02-03",
+          "year": "2028"
+        },
+        {
+          "start": "2029-01-29",
+          "end": "2029-02-03",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "Deluxe_Room": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1325,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1550,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "DeluxeOcean": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 0,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1425,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1725,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [
+    "Deluxe_Room|Peak Season",
+    "DeluxeOcean|Peak Season"
+  ],
+  "coverage_until": "2029-10-31"
+}

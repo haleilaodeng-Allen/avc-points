@@ -1,0 +1,310 @@
+{
+  "hotel_name": "Avani Quy Nhon Resort",
+  "hotel_code": "",
+  "updated": "2026-06-26",
+  "years": [
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "Deluxe",
+      "name": "Deluxe Studio",
+      "max": 3
+    },
+    {
+      "code": "Junior_Suite",
+      "name": "Junior Ocean Suite",
+      "max": 3
+    }
+  ],
+  "seasons": [
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2023-05-03",
+          "end": "2023-08-31",
+          "year": "2023"
+        },
+        {
+          "start": "2023-09-05",
+          "end": "2023-12-22",
+          "year": "2023"
+        },
+        {
+          "start": "2025-02-20",
+          "end": "2025-08-31",
+          "year": "2025"
+        },
+        {
+          "start": "2027-01-04",
+          "end": "2027-03-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-05-03",
+          "end": "2028-08-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-05-03",
+          "end": "2029-08-31",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2023-09-01",
+          "end": "2023-09-04",
+          "year": "2023"
+        },
+        {
+          "start": "2023-12-23",
+          "end": "2023-12-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-01-01",
+          "end": "2024-01-07",
+          "year": "2024"
+        },
+        {
+          "start": "2024-12-23",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-01-03",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-23",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-01",
+          "end": "2026-01-03",
+          "year": "2026"
+        },
+        {
+          "start": "2026-12-23",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-01-01",
+          "end": "2027-01-03",
+          "year": "2027"
+        },
+        {
+          "start": "2028-09-01",
+          "end": "2028-09-04",
+          "year": "2028"
+        },
+        {
+          "start": "2029-09-01",
+          "end": "2029-09-04",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Mid Season",
+      "cn": "平季",
+      "periods": [
+        {
+          "start": "2024-04-01",
+          "end": "2024-12-22",
+          "year": "2024"
+        },
+        {
+          "start": "2026-01-04",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-03-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-04-01",
+          "end": "2026-08-31",
+          "year": "2026"
+        },
+        {
+          "start": "2028-04-01",
+          "end": "2028-12-22",
+          "year": "2028"
+        },
+        {
+          "start": "2029-04-01",
+          "end": "2029-12-22",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2026-09-01",
+          "end": "2026-12-22",
+          "year": "2026"
+        },
+        {
+          "start": "2028-09-01",
+          "end": "2028-12-22",
+          "year": "2028"
+        },
+        {
+          "start": "2029-09-01",
+          "end": "2029-12-22",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "Deluxe": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3080,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 880,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1000,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2290,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "Junior_Suite": {
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3880,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1370,
+          "title": "MON-SUN"
+        }
+      ],
+      "Mid Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1550,
+          "title": "MON-SUN"
+        }
+      ],
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3010,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [],
+  "coverage_until": "2029-12-22"
+}
