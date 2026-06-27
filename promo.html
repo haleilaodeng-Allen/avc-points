@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>安纳塔拉假期俱乐部 · 当季优惠</title>
+<style>
+  :root{
+    --bg:#faf6ef;          /* 暖米白 */
+    --card:#ffffff;
+    --ink:#2a2520;         /* 深褐墨 */
+    --ink-soft:#6b6258;
+    --line:#e8e0d3;
+    --gold:#b08d4f;        /* 安纳塔拉金 */
+    --gold-deep:#8a6d3a;
+    --teal:#3d6b66;        /* 度假青 */
+    --teal-soft:#e3ede9;
+    --urgent:#c25a44;      /* 紧迫橙红 */
+    --urgent-soft:#f6e4de;
+    --warm:#d99a3e;
+    --serif:'Georgia','Songti SC','STSong',serif;
+    --sans:'PingFang SC','Microsoft YaHei','Helvetica Neue',sans-serif;
+    --mono:'SF Mono',ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.6;
+    -webkit-font-smoothing:antialiased}
+
+  /* 顶部 hero */
+  .hero{padding:48px 24px 36px;text-align:center;border-bottom:1px solid var(--line);
+    background:linear-gradient(180deg,#fdfbf6 0%,var(--bg) 100%);position:relative;overflow:hidden}
+  .hero-eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.32em;text-transform:uppercase;
+    color:var(--gold);margin-bottom:16px}
+  .hero h1{font-family:var(--serif);font-size:38px;font-weight:400;letter-spacing:.01em;
+    color:var(--ink);line-height:1.15;margin-bottom:12px}
+  .hero h1 em{font-style:italic;color:var(--gold-deep)}
+  .hero-sub{font-size:14px;color:var(--ink-soft);max-width:480px;margin:0 auto}
+  .hero-meta{margin-top:18px;font-family:var(--mono);font-size:11px;color:var(--ink-soft);letter-spacing:.05em}
+
+  .wrap{max-width:1000px;margin:0 auto;padding:0 20px 80px}
+
+  /* 分区标题 */
+  .sec{margin-top:48px}
+  .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:6px}
+  .sec-num{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em}
+  .sec-title{font-family:var(--serif);font-size:25px;font-weight:400;color:var(--ink)}
+  .sec-desc{font-size:13px;color:var(--ink-soft);margin-bottom:24px;padding-left:0}
+
+  /* 促销卡片网格 */
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:18px}
+
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;
+    display:flex;flex-direction:column;transition:transform .2s,box-shadow .2s}
+  .card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(80,60,30,.1)}
+
+  .card-img{height:140px;background:var(--teal-soft);background-size:cover;background-position:center;
+    position:relative}
+  .card-badge{position:absolute;top:12px;left:12px;background:var(--card);color:var(--gold-deep);
+    font-size:11px;font-weight:600;padding:4px 11px;border-radius:20px;letter-spacing:.03em;
+    box-shadow:0 2px 8px rgba(0,0,0,.08)}
+  .countdown{position:absolute;top:12px;right:12px;background:rgba(42,37,32,.85);color:#fff;
+    font-family:var(--mono);font-size:11px;padding:4px 10px;border-radius:20px;backdrop-filter:blur(4px)}
+  .countdown.urgent{background:var(--urgent)}
+  .countdown.warn{background:var(--warm)}
+
+  .card-body{padding:16px 18px 18px;display:flex;flex-direction:column;flex:1}
+  .card-loc{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;
+    color:var(--teal);margin-bottom:5px}
+  .card-hotel{font-size:15px;font-weight:600;color:var(--ink);line-height:1.3;margin-bottom:3px}
+  .card-promo{font-family:var(--serif);font-size:18px;font-style:italic;color:var(--gold-deep);
+    margin:8px 0 12px;line-height:1.25}
+
+  .card-items{list-style:none;margin:0 0 14px;flex:1}
+  .card-items li{font-size:13px;color:var(--ink-soft);padding:3px 0 3px 18px;position:relative;line-height:1.5}
+  .card-items li::before{content:'✦';position:absolute;left:0;color:var(--gold);font-size:10px;top:5px}
+
+  .card-foot{border-top:1px solid var(--line);padding-top:12px;display:flex;justify-content:space-between;
+    align-items:center;font-size:12px}
+  .card-cond{color:var(--ink-soft)}
+  .card-deadline{font-family:var(--mono);color:var(--ink);font-weight:600}
+  .card-deadline.urgent{color:var(--urgent)}
+
+  /* 加载/空/错误 */
+  .state{text-align:center;padding:60px 20px;color:var(--ink-soft)}
+  .state-big{font-family:var(--serif);font-size:20px;color:var(--ink);margin-bottom:8px}
+  .spinner{display:inline-block;width:28px;height:28px;border:3px solid var(--line);
+    border-top-color:var(--gold);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:14px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+
+  /* 配置区（首次） */
+  .setup{max-width:560px;margin:40px auto;background:var(--card);border:1px solid var(--line);
+    border-radius:14px;padding:26px}
+  .setup h3{font-family:var(--serif);font-size:20px;margin-bottom:8px}
+  .setup p{font-size:13px;color:var(--ink-soft);margin-bottom:16px;line-height:1.6}
+  .setup label{display:block;font-size:12px;color:var(--ink-soft);margin-bottom:6px}
+  .setup input,.setup textarea{width:100%;border:1px solid var(--line);border-radius:8px;padding:11px;
+    font-size:14px;font-family:var(--sans);background:var(--bg);color:var(--ink);margin-bottom:14px}
+  .setup textarea{height:90px;font-family:var(--mono);font-size:11px;resize:vertical}
+  .btn{background:var(--gold);color:#fff;border:none;padding:12px 24px;border-radius:8px;font-size:14px;
+    font-weight:600;cursor:pointer;font-family:inherit}
+  .btn:hover{background:var(--gold-deep)}
+  code{font-family:var(--mono);background:var(--teal-soft);padding:1px 5px;border-radius:4px;font-size:12px}
+
+  .footer-note{text-align:center;font-size:11px;color:var(--ink-soft);margin-top:50px;
+    padding-top:20px;border-top:1px solid var(--line);line-height:1.7}
+
+  @media(max-width:560px){
+    .hero h1{font-size:30px}
+    .hero{padding:36px 18px 28px}
+    .grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+  <div class="hero">
+    <div class="hero-eyebrow">Anantara Vacation Club</div>
+    <h1>当季<em>臻享</em>优惠</h1>
+    <p class="hero-sub">精选度假村住宿礼遇与养生体验,用您的俱乐部积分,开启一段值得期待的旅程。</p>
+    <div class="hero-meta" id="heroMeta"></div>
+  </div>
+
+  <div class="wrap">
+    <div id="setup" class="setup" style="display:none">
+      <h3>接入促销数据</h3>
+      <p>填写 GitHub 上 <code>promos/</code> 文件夹地址,系统自动读取里面的 <code>promo1.json</code> 到 <code>promo5.json</code>。更新促销时,覆盖这几个文件即可。</p>
+      <label>promos 文件夹地址</label>
+      <input type="text" id="dataUrl" placeholder="https://raw.githubusercontent.com/用户名/avc-points/main/promos/">
+      <label>或粘贴促销数据(可多份,用于预览)</label>
+      <textarea id="dataPaste" placeholder='把 resort-promotions 接口数据粘贴进来'></textarea>
+      <button class="btn" id="loadBtn">载入</button>
+    </div>
+
+    <div id="content"></div>
+  </div>
+
+<script>
+// 部署时填你的 promos 文件夹地址（填好后任何人打开自动加载）
+var PROMO_FOLDER = "";
+
+//============== 内部信息过滤 ==============
+function isInternal(s){
+  if(!s) return false;
+  return /clubguru@|clubservices@|Club Guru|Platinum.*Owner|Sapphire.*Owner|Royal.*&.*Prestige|Additional Club Points will be required|contact your|Club Services/i.test(s);
+}
+function stripHtml(s){
+  if(!s) return '';
+  return s.replace(/&nbsp;/g,' ').replace(/&amp;/g,'&').replace(/&#39;/g,"'")
+    .replace(/<li>/gi,'※').replace(/<[^>]+>/g,' ').replace(/◦/g,'').replace(/※\s*/g,'※')
+    .replace(/\s+/g,' ').trim();
+}
+// 把一段含多条的文本拆成数组（按 ※ 或句号）
+function splitItems(raw){
+  if(!raw) return [];
+  const cleaned=stripHtml(raw);
+  let parts=cleaned.split('※').map(s=>s.trim()).filter(Boolean);
+  if(parts.length<=1) parts=[cleaned];
+  return parts.filter(p=>!isInternal(p));
+}
+function detailItems(details){
+  const out=[];
+  if(!Array.isArray(details)) return out;
+  details.forEach(d=>{
+    if(typeof d==='string'){ splitItems(d).forEach(x=>out.push(x)); return; }
+    if(d&&Array.isArray(d.items)) d.items.forEach(it=>splitItems(it).forEach(x=>out.push(x)));
+  });
+  return out;
+}
+
+//============== 解析三种结构 ==============
+function parseOne(json){
+  const data=json.data||json;
+  const stays=[], offers=[];
+  (data.resorts||[]).forEach(r=>{
+    (r.promotions||[]).forEach(p=>{
+      stays.push({hotel:r.name,loc:r.location,country:r.country,img:r.heroImage,
+        title:p.title,period:p.period,items:detailItems(p.details),
+        bookBy:p.bookBy,stayBy:p.stayBy});
+    });
+    (r.limitedTimeOffers||[]).forEach(o=>{
+      offers.push({hotel:o.resortName||r.name,loc:o.resortLocation||r.location,img:o.image,
+        title:o.title,items:splitItems(o.intro),exp:o.expiresAt});
+    });
+  });
+  (data.flat||[]).forEach(o=>{
+    offers.push({hotel:o.resortName,loc:o.resortLocation,img:o.image,
+      title:o.title,items:splitItems(o.intro),exp:o.expiresAt});
+  });
+  return {stays,offers};
+}
+function dedup(arr){
+  const seen=new Set();
+  return arr.filter(x=>{const k=x.hotel+'|'+x.title;if(seen.has(k))return false;seen.add(k);return true;});
+}
+
+//============== 日期 ==============
+function parseDate(str){
+  if(!str) return null;
+  if(/^\d{4}-\d{2}-\d{2}/.test(str)) return new Date(str.slice(0,10)+'T00:00:00');
+  const d=new Date(str); return isNaN(d)?null:d;
+}
+function daysLeft(d){ if(!d)return null; const t=new Date();t.setHours(0,0,0,0); return Math.round((d-t)/86400000); }
+function fmtDate(d){ if(!d)return ''; return `${d.getMonth()+1}月${d.getDate()}日`; }
+function cdClass(n){ if(n===null)return''; if(n<=7)return'urgent'; if(n<=21)return'warn'; return''; }
+function cdText(n){ if(n===null)return''; if(n<0)return'已结束'; if(n===0)return'今日截止'; return'仅剩 '+n+' 天'; }
+
+//============== 渲染 ==============
+const $=id=>document.getElementById(id);
+let DATA={stays:[],offers:[]};
+
+function loadAll(jsonArr){
+  let stays=[], offers=[];
+  jsonArr.forEach(j=>{ const r=parseOne(j); stays.push(...r.stays); offers.push(...r.offers); });
+  DATA.stays=dedup(stays); DATA.offers=dedup(offers);
+  // 按截止排序
+  const sortFn=(a,b)=>{
+    const da=daysLeft(parseDate(a.stayBy||a.exp)), db=daysLeft(parseDate(b.stayBy||b.exp));
+    if(da===null)return 1; if(db===null)return -1;
+    if(da<0&&db>=0)return 1; if(db<0&&da>=0)return -1; return da-db;
+  };
+  DATA.stays.sort(sortFn); DATA.offers.sort(sortFn);
+  render();
+}
+
+function imgStyle(url){
+  if(url && /^https?:\/\//.test(url)) return `style="background-image:url('${url}')"`;
+  return '';
+}
+
+function stayCard(s){
+  const n=daysLeft(parseDate(s.stayBy));
+  const items=s.items.slice(0,4).map(i=>`<li>${i}</li>`).join('');
+  return `<div class="card">
+    <div class="card-img" ${imgStyle(s.img)}>
+      <span class="card-badge">住宿礼遇</span>
+      ${n!==null&&n>=0?`<span class="countdown ${cdClass(n)}">${cdText(n)}</span>`:''}
+    </div>
+    <div class="card-body">
+      <div class="card-loc">${s.loc||s.country||''}</div>
+      <div class="card-hotel">${s.hotel}</div>
+      <div class="card-promo">${s.title||''}</div>
+      <ul class="card-items">${items}</ul>
+      <div class="card-foot">
+        <span class="card-cond">${s.period&&s.period!=='(no minimum stay)'&&s.period!=='No minimum stay'?s.period:'无最低住期'}</span>
+        <span class="card-deadline ${cdClass(n)==='urgent'?'urgent':''}">至 ${fmtDate(parseDate(s.stayBy))}</span>
+      </div>
+    </div>
+  </div>`;
+}
+function offerCard(o){
+  const n=daysLeft(parseDate(o.exp));
+  const items=o.items.slice(0,4).map(i=>`<li>${i}</li>`).join('');
+  return `<div class="card">
+    <div class="card-img" ${imgStyle(o.img)}>
+      <span class="card-badge">养生体验</span>
+      ${n!==null&&n>=0?`<span class="countdown ${cdClass(n)}">${cdText(n)}</span>`:''}
+    </div>
+    <div class="card-body">
+      <div class="card-loc">${o.loc||''}</div>
+      <div class="card-hotel">${o.hotel}</div>
+      <div class="card-promo">${o.title||''}</div>
+      <ul class="card-items">${items}</ul>
+      <div class="card-foot">
+        <span class="card-cond">限时体验</span>
+        <span class="card-deadline ${cdClass(n)==='urgent'?'urgent':''}">至 ${fmtDate(parseDate(o.exp))}</span>
+      </div>
+    </div>
+  </div>`;
+}
+
+function render(){
+  const total=DATA.stays.length+DATA.offers.length;
+  $('heroMeta').textContent=`当前 ${DATA.stays.length} 项住宿礼遇 · ${DATA.offers.length} 项养生体验 · 更新于 ${new Date().getMonth()+1}月${new Date().getDate()}日`;
+
+  let html='';
+  if(DATA.stays.length){
+    html+=`<div class="sec">
+      <div class="sec-head"><span class="sec-num">01</span><span class="sec-title">住宿礼遇</span></div>
+      <div class="sec-desc">用俱乐部积分预订,尊享折扣、餐饮与专属体验</div>
+      <div class="grid">${DATA.stays.map(stayCard).join('')}</div>
+    </div>`;
+  }
+  if(DATA.offers.length){
+    html+=`<div class="sec">
+      <div class="sec-head"><span class="sec-num">02</span><span class="sec-title">养生体验</span></div>
+      <div class="sec-desc">入住期间可享的限时 SPA 与养生礼遇</div>
+      <div class="grid">${DATA.offers.map(offerCard).join('')}</div>
+    </div>`;
+  }
+  if(total===0){
+    html=`<div class="state"><div class="state-big">暂无进行中的优惠</div><div>请稍后再来查看</div></div>`;
+  }
+  html+=`<div class="footer-note">以上优惠以官方最终条款为准 · 名额有限,敬请尽早预订<br>具体预订与权益详情,请咨询您的度假顾问</div>`;
+  $('content').innerHTML=html;
+}
+
+//============== 数据加载 ==============
+// 读固定文件名 promo1.json ~ promo5.json，有几个读几个，缺的自动跳过
+async function loadFromFolder(baseUrl){
+  if(!baseUrl.endsWith('/')) baseUrl+='/';
+  const tries=[];
+  for(let i=1;i<=5;i++) tries.push('promo'+i+'.json');
+  const results=await Promise.allSettled(
+    tries.map(f=>fetch(baseUrl+f).then(r=>{ if(!r.ok) throw 0; return r.json(); }))
+  );
+  return results.filter(r=>r.status==='fulfilled').map(r=>r.value);
+}
+
+function showLoading(){ $('content').innerHTML='<div class="state"><div class="spinner"></div><div>正在载入当季优惠…</div></div>'; }
+function showSetup(){ $('setup').style.display='block'; $('heroMeta').textContent=''; }
+
+$('loadBtn').onclick=()=>{
+  const url=$('dataUrl').value.trim(), paste=$('dataPaste').value.trim();
+  if(url){
+    $('setup').style.display='none'; showLoading();
+    loadFromFolder(url).then(arr=>{
+      if(!arr.length){showSetup();alert('没读到数据');return;}
+      try{localStorage.setItem('avc_promo_url',url);}catch(e){}
+      loadAll(arr);
+    }).catch(e=>{showSetup();alert('载入失败:'+e.message);});
+  } else if(paste){
+    try{ loadAll([JSON.parse(paste)]); $('setup').style.display='none'; }
+    catch(e){ alert('数据解析失败:'+e.message); }
+  } else alert('请填地址或粘贴数据');
+};
+
+//============== 启动 ==============
+(function boot(){
+  if(typeof PROMO_FOLDER!=='undefined' && PROMO_FOLDER){
+    showLoading();
+    loadFromFolder(PROMO_FOLDER).then(arr=>{ arr.length?loadAll(arr):showSetup(); }).catch(()=>showSetup());
+    return;
+  }
+  let saved=null; try{saved=localStorage.getItem('avc_promo_url');}catch(e){}
+  if(saved){
+    $('dataUrl').value=saved; showLoading();
+    loadFromFolder(saved).then(arr=>{ arr.length?loadAll(arr):showSetup(); }).catch(()=>showSetup());
+    return;
+  }
+  showSetup();
+})();
+</script>
+</body>
+</html>
