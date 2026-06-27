@@ -206,7 +206,8 @@
     <div class="row">
       <div class="fld">
         <label>酒店</label>
-        <select id="cHotel"></select>
+        <input type="text" id="cSearch" placeholder="🔍 输入关键词筛选 (如 bali / maldives / phuket)" autocomplete="off">
+        <select id="cHotel" style="margin-top:8px"></select>
       </div>
     </div>
     <div class="row">
@@ -410,11 +411,12 @@ function renderBudgetResults(hits,max,inStr,outStr,nightsCount){
   box.innerHTML=html;
 }
 
-// 按酒店算账
-function runCalc(){
+// 按酒店算账。silent=true 时（自动重算）不弹窗、缺条件就清空结果
+function runCalc(silent){
   const hi=$('cHotel').value, rc=$('cRoom').value;
   const inStr=getDateValue('cIn'), outStr=getDateValue('cOut');
-  if(!inStr||!outStr){alert('请选入住和退房');return;}
+  if(hi===''||!rc){ if(!silent)alert('请选酒店和房型'); $('results').innerHTML=''; return; }
+  if(!inStr||!outStr){ if(!silent)alert('请选入住和退房'); return; }
   const hotel=HOTELS[hi];
   const r=calcStay(hotel,rc,inStr,outStr);
   const box=$('results');
@@ -440,13 +442,28 @@ function runCalc(){
   box.innerHTML=html;
 }
 
-function fillHotelSelect(){
+function fillHotelSelect(filter){
   const sel=$('cHotel');
-  sel.innerHTML=HOTELS.map((h,i)=>`<option value="${i}">${h.hotel_name||'(未命名)'}</option>`).join('');
+  // 建立 索引+名字 列表，按名字字母排序
+  let list=HOTELS.map((h,i)=>({i, name:h.hotel_name||'(未命名)'}));
+  list.sort((a,b)=>a.name.localeCompare(b.name,'en'));
+  // 搜索过滤
+  if(filter){
+    const f=filter.toLowerCase();
+    list=list.filter(x=>x.name.toLowerCase().includes(f));
+  }
+  if(list.length===0){
+    sel.innerHTML='<option value="">无匹配酒店</option>';
+    $('cRoom').innerHTML='';
+    return;
+  }
+  sel.innerHTML=list.map(x=>`<option value="${x.i}">${x.name}</option>`).join('');
   fillRoomSelect();
 }
 function fillRoomSelect(){
-  const h=HOTELS[$('cHotel').value];
+  const v=$('cHotel').value;
+  if(v===''){ $('cRoom').innerHTML=''; return; }
+  const h=HOTELS[v];
   $('cRoom').innerHTML=h.rooms.map(r=>`<option value="${r.code}">${r.name}</option>`).join('');
 }
 
@@ -556,8 +573,20 @@ $('bDateMode').querySelectorAll('button').forEach(b=>{
   };
 });
 $('bRun').onclick=runBudget;
-$('cRun').onclick=runCalc;
-$('cHotel').onchange=fillRoomSelect;
+$('cRun').onclick=()=>runCalc(false);
+
+// 搜索框：输入时过滤酒店列表
+$('cSearch').oninput=()=>{
+  fillHotelSelect($('cSearch').value.trim());
+  runCalc(true); // 过滤后自动算第一家
+};
+// 换酒店：刷新房型 + 自动重算
+$('cHotel').onchange=()=>{ fillRoomSelect(); runCalc(true); };
+// 换房型：自动重算
+$('cRoom').onchange=()=>runCalc(true);
+// 换日期（日期下拉是动态生成的，用事件委托）
+$('cIn').onchange=()=>runCalc(true);
+$('cOut').onchange=()=>runCalc(true);
 
 // 预算步进器 +/- 100
 document.querySelectorAll('.step-btn').forEach(b=>{
