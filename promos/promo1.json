@@ -1,0 +1,258 @@
+{
+    "success": true,
+    "data": {
+        "resorts": [
+            {
+                "id": "vsam",
+                "name": "Anantara Vacation Club at Avani+ Samui",
+                "location": "Samui, Thailand",
+                "country": "Thailand",
+                "isSignatureClub": true,
+                "heroImage": "https:\/\/marcombucket1.s3.amazonaws.com\/assets\/images\/resort\/avani-plus-samui-resort\/avc_at_avani_plus_bp.jpg",
+                "promotions": [
+                    {
+                        "title": "Southern Samui Getaway",
+                        "types": [
+                            "Club Resort Promotion"
+                        ],
+                        "period": "(no minimum stay)",
+                        "details": [
+                            {
+                                "title": null,
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "Get 50% off room rates when booking with your Club Points",
+                                    "Book and stay from October 1, 2025 until June 30, 2026 to enjoy:<ul><li>\u25e6 Daily breakfast for all registered guests<\/li><li>\u25e6 Stay 3 nights or more and get a one-time THB 2,000 Resort Credit per room, per stay<\/li><\/ul>"
+                                ],
+                                "children": []
+                            }
+                        ],
+                        "bookBy": "June 30, 2026",
+                        "stayBy": "June 30, 2026",
+                        "remark1": "<i>Platinum, Sapphire, Royal &amp; Prestige Owners, contact your <a href=\"mailto:clubguru@anantaraclub.com\" style=\"text-decoration: none; color: #A48E82;\" target=\"_blank\">Club Guru<\/a> regarding your extra benefits.<\/i>",
+                        "remark2": "<i>*Two Bedroom Beachfront Pool Villa is not eligible for the 50% discount promotion.<\/i>"
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-06-09&skd-checkout=2026-06-12&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-promotion-code=RA1&skd-property-code=S004482",
+                "coordinates": {
+                    "lat": 9.4255,
+                    "lng": 99.935805
+                }
+            },
+            {
+                "id": "vsem",
+                "name": "Anantara Vacation Club at Avani Seminyak Bali",
+                "location": "Bali, Indonesia",
+                "country": "Indonesia",
+                "isSignatureClub": true,
+                "heroImage": "https:\/\/marcombucket1.s3.amazonaws.com\/assets\/images\/resort\/anantara-vacation-club-seminyak-bali\/avc_asb.jpg",
+                "promotions": [
+                    {
+                        "title": "Bali Paradise",
+                        "types": [
+                            "Club Resort Promotion"
+                        ],
+                        "period": "3 nights (min. 2 adults)",
+                        "details": [
+                            {
+                                "title": null,
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "Roundtrip Bali airport transfer",
+                                    "Daily half board: Breakfast and 3-Course Set Menu Lunch or Dinner for 2",
+                                    "1x 60-minute Balinese Massage for 2",
+                                    "1 x half-day Ubud Tour. Choose from:<ul><li>\u25e6 Real Bali Swing and Tegenungan Waterfall<\/li><li>\u25e6 Bali Swing Pioneer and Tegenungan Waterfall<\/li><li>\u25e6 Rafting in Ubud, Monkey Forest & Ubud Center<\/li><\/ul>",
+                                    "1 x Indonesian Cooking Class for 2"
+                                ],
+                                "children": []
+                            }
+                        ],
+                        "bookBy": "June 30, 2026",
+                        "stayBy": "June 30, 2026",
+                        "remark2": "Additional Club Points will be required on top of your accommodation. Please contact <a href=\"mailto:clubservices@anantaraclub.com\" style=\"text-decoration: none; color: #A48E82;\">Club Services<\/a> for more information."
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-06-08&skd-checkout=2026-06-11&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-promotion-code=RA1&skd-property-code=SOH75510",
+                "coordinates": {
+                    "lat": -8.688042,
+                    "lng": 115.164056
+                }
+            },
+            {
+                "id": "ariv",
+                "name": "Anantara Vacation Club at Riverside Bangkok",
+                "location": "Bangkok, Thailand",
+                "country": "Thailand",
+                "isSignatureClub": false,
+                "heroImage": "https:\/\/marcombucket1.s3.amazonaws.com\/assets\/images\/resort\/anantara-vacation-club-at-riverside-bangkok\/river-bangkok.webp",
+                "promotions": [
+                    {
+                        "title": "River of Kings",
+                        "types": [
+                            "Club Resort Promotion"
+                        ],
+                        "period": "2+ nights (min. 2 adults)",
+                        "details": [
+                            {
+                                "title": null,
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "Daily breakfast",
+                                    "1x Manohra Dinner Cruise, including set Thai dinner and unlimited soft drinks",
+                                    "THB 3,000 F&B Credit"
+                                ],
+                                "children": []
+                            }
+                        ],
+                        "bookBy": "October 31, 2026",
+                        "stayBy": "October 31, 2026",
+                        "remark2": "Additional Club Points will be required on top of your accommodation. Please contact <a href=\"mailto:clubservices@anantaraclub.com\" style=\"text-decoration: none; color: #A48E82;\">Club Services team<\/a> for more information.",
+                        "disclaimer": "Additional Club Points will be required on top of your accommodation. Please contact <a href=\"mailto:clubservices@anantaraclub.com\" style=\"text-decoration: none; color: #A48E82;\">Club Services team<\/a> for more information."
+                    }
+                ],
+                "limitedTimeOffers": [
+                    {
+                        "id": 2,
+                        "slug": "aesthetic-beauty",
+                        "badgeText": "Limited-time offer",
+                        "title": "Aesthetic Beauty",
+                        "subtitle": "Aesthetic Beauty",
+                        "priceText": null,
+                        "intro": "<p><\/p><p>\u2022&nbsp;Buy&nbsp;1&nbsp;Get&nbsp;1&nbsp;Free:&nbsp;ICOONE&nbsp;treatments&nbsp;(Body&nbsp;Remodelling\/Silhouette\/&nbsp;Lymphatic&nbsp;Drainage\/&nbsp;ICOONE&nbsp;Face&nbsp;programme)<\/p><p><\/p><p><strong>ADDITIONAL&nbsp;OFFERS<\/strong><\/p><p>\u2022&nbsp;FREE&nbsp;Express&nbsp;IV&nbsp;drips&nbsp;when&nbsp;booking&nbsp;any&nbsp;HydraFacial&nbsp;Treatment<\/p><p>\u2022&nbsp;FREE&nbsp;30&nbsp;unit&nbsp;with&nbsp;purchase&nbsp;of&nbsp;100&nbsp;unit&nbsp;Botox&nbsp;(Allergan&nbsp;brand&nbsp;from&nbsp;U.S)<\/p><p>\u2022&nbsp;FREE&nbsp;add-on&nbsp;mask&nbsp;or&nbsp;LED&nbsp;mask&nbsp;with&nbsp;purchase&nbsp;of&nbsp;any&nbsp;\u00e0&nbsp;la&nbsp;carte&nbsp;treatment<\/p>",
+                        "details": [],
+                        "ctaType": "custom",
+                        "ctaText": "Book Now",
+                        "ctaUrl": "https:\/\/points-redemption.minorvacationclub.com\/landing\/auth?partner=limited-time-offers&lang=en&tab=bangkok",
+                        "ctaNote": null,
+                        "image": "https:\/\/clubservices-bucket.s3-ap-southeast-1.amazonaws.com\/points-redemption\/partners\/limited-time-offers\/wellness-month-promotion-aesthetic-beauty.jpg",
+                        "theme": "purple",
+                        "resortId": "ariv",
+                        "resortName": "Anantara Vacation Club at Riverside Bangkok",
+                        "resortCountry": "Thailand",
+                        "resortLocation": "Bangkok, Thailand",
+                        "expiresAt": "2026-08-31T12:59:00+00:00"
+                    }
+                ],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-06-08&skd-checkout=2026-06-10&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-promotion-code=RA1&skd-property-code=SOH75131",
+                "coordinates": {
+                    "lat": 13.704306,
+                    "lng": 100.492278
+                }
+            },
+            {
+                "id": "vkhl",
+                "name": "Anantara Vacation Club at Avani+ Khao Lak",
+                "location": "Phang Nga, Thailand",
+                "country": "Thailand",
+                "isSignatureClub": false,
+                "heroImage": "https:\/\/marcombucket1.s3.amazonaws.com\/assets\/images\/resort\/anantara-vacation-club-at-avani-plus-khao-lak\/anantara-vacation-club-at-avani-plus-khao-lak-other-1.jpg",
+                "promotions": [
+                    {
+                        "title": "Khao Lak Getaway",
+                        "types": [
+                            "Club Resort Promotion"
+                        ],
+                        "period": "No minimum stay",
+                        "details": [
+                            {
+                                "title": null,
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "Book Premier Room with Club Points during low- & mid-season and receive a 20% discount."
+                                ],
+                                "children": []
+                            }
+                        ],
+                        "bookBy": "November 4, 2026",
+                        "stayBy": "November 4, 2026"
+                    }
+                ],
+                "limitedTimeOffers": [
+                    {
+                        "id": 6,
+                        "slug": "wellness-month-khaolak",
+                        "badgeText": "Limited-time offer",
+                        "title": "Wellness Month",
+                        "subtitle": null,
+                        "priceText": null,
+                        "intro": "<p>A&nbsp;choice&nbsp;of:<\/p><ul><li>75-minute&nbsp;Delight&nbsp;SPA<\/li><li>90-minute&nbsp;Salty&nbsp;in&nbsp;Paradise<\/li><li>75-minute&nbsp;Warm&nbsp;Cocoon&nbsp;Therapy<\/li><li>75-minute&nbsp;Hot&nbsp;Stone&nbsp;Ritual<\/li><li>60-minute&nbsp;The&nbsp;Healing&nbsp;Touch<\/li><\/ul>",
+                        "details": [],
+                        "ctaType": "custom",
+                        "ctaText": "Book Now",
+                        "ctaUrl": "https:\/\/points-redemption.minorvacationclub.com\/landing\/auth?partner=limited-time-offers&lang=en&tab=khaolak",
+                        "ctaNote": null,
+                        "image": "https:\/\/clubservices-bucket.s3-ap-southeast-1.amazonaws.com\/points-redemption\/partners\/limited-time-offers\/avani-khao-lak-resort-spa.jpg",
+                        "theme": "purple",
+                        "resortId": "vkhl",
+                        "resortName": "Anantara Vacation Club at Avani+ Khao Lak",
+                        "resortCountry": "Thailand",
+                        "resortLocation": "Phang Nga, Thailand",
+                        "expiresAt": "2026-06-30T11:59:00+00:00"
+                    }
+                ],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2024-01-15&skd-checkout=2024-01-18&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-promotion-code=RA1&skd-property-code=AVC000230",
+                "coordinates": {
+                    "lat": 8.763888,
+                    "lng": 98.262777
+                }
+            },
+            {
+                "id": "cleg",
+                "name": "Anantara Vacation Club Legian Bali",
+                "location": "Bali, Indonesia",
+                "country": "Indonesia",
+                "isSignatureClub": false,
+                "heroImage": "https:\/\/marcombucket1.s3.amazonaws.com\/assets\/images\/resort\/anantara-vacation-club-legian-bali\/avc_lb.jpg",
+                "promotions": [
+                    {
+                        "title": "Bali Paradise",
+                        "types": [
+                            "Club Resort Promotion"
+                        ],
+                        "period": "3 nights (min. 2 adults)",
+                        "details": [
+                            "Roundtrip Bali airport transfer",
+                            "Daily half board: Breakfast and 3-Course Set Menu Lunch or Dinner for 2",
+                            "1x 60-minute Balinese Massage for 2",
+                            "1 x half-day Ubud Tour. Choose from:<ul><li>\u25e6 Real Bali Swing and Tegenungan Waterfall<\/li><li>\u25e6 Bali Swing Pioneer and Tegenungan Waterfall<\/li><li>\u25e6 Rafting in Ubud, Monkey Forest & Ubud Center<\/li><\/ul>",
+                            "1 x Afternoon tea for 2"
+                        ],
+                        "bookBy": "June 30, 2026",
+                        "stayBy": "June 30, 2026",
+                        "remark2": "Additional Club Points will be required on top of your accommodation. Please contact <a href=\"mailto:clubservices@anantaraclub.com\" style=\"text-decoration: none; color: #A48E82;\">Club Services<\/a> for more information."
+                    }
+                ],
+                "limitedTimeOffers": [
+                    {
+                        "id": 5,
+                        "slug": "40-off-all-spa-treatments-of-60-minutes-or-longer",
+                        "badgeText": "Limited-time offer",
+                        "title": "Wellness Month",
+                        "subtitle": null,
+                        "priceText": null,
+                        "intro": "<p>40%&nbsp;off&nbsp;all&nbsp;spa&nbsp;treatments&nbsp;of&nbsp;60&nbsp;minutes&nbsp;or&nbsp;longer<\/p>",
+                        "details": [],
+                        "ctaType": "redemption",
+                        "ctaText": "Book Now",
+                        "ctaUrl": "https:\/\/points-redemption.minorvacationclub.com\/landing\/auth?partner=limited-time-offers&lang=en&tab=bali",
+                        "ctaNote": null,
+                        "image": null,
+                        "theme": "purple",
+                        "resortId": "cleg",
+                        "resortName": "Anantara Vacation Club Legian Bali",
+                        "resortCountry": "Indonesia",
+                        "resortLocation": "Bali, Indonesia",
+                        "expiresAt": "2026-07-31T00:00:00+00:00"
+                    }
+                ],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-06-08&skd-checkout=2026-06-11&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-promotion-code=RA1&skd-property-code=S003875",
+                "coordinates": {
+                    "lat": -8.699444,
+                    "lng": 115.163333
+                }
+            }
+        ]
+    }
+}

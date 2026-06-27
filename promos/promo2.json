@@ -1,0 +1,332 @@
+{
+    "success": true,
+    "data": {
+        "resorts": [
+            {
+                "id": "anantara-xishuangbanna-resort",
+                "name": "Anantara Xishuangbanna Resort",
+                "location": "Yunnan",
+                "country": "China",
+                "isSignatureClub": false,
+                "heroImage": "\/assets\/club-escape\/anantara_xishuangbanna.jpg",
+                "promotions": [
+                    {
+                        "title": "CLUB ESCAPES",
+                        "types": [
+                            "Club Escapes"
+                        ],
+                        "period": "",
+                        "details": [
+                            {
+                                "title": "Stay Benefits",
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "Welcome fruit upon arrival (first day only)",
+                                    "Unlimited coffee and tea at Daijia Pavilion (one-time entitlement per stay)",
+                                    "Complimentary minibar (first night only)"
+                                ],
+                                "children": []
+                            },
+                            {
+                                "title": "Included Experiences",
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "Intangible Cultural Heritage Experience \u2013 Dai papermaking",
+                                    "Photo-Shoot Experience",
+                                    "Family Fun Activity",
+                                    "Xishuangbanna Tropical Botanical Garden admission tickets for two persons (entry before 12:00 PM)"
+                                ],
+                                "children": [
+                                    {
+                                        "title": null,
+                                        "bullet_style": "none",
+                                        "items": [
+                                            "* Advance reservation of at least one day is required for all activities listed above."
+                                        ],
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ],
+                        "bookBy": "June 30, 2026",
+                        "stayBy": "June 30, 2026",
+                        "remark1": "*Note:\n\nEach benefit is limited to two adults per stay, valid for one-time use per stay, and is non-transferable and non-refundable.\nThe hotel reserves the right to amend the benefits without prior notice.\nFinal benefits are subject to hotel confirmation upon check-in."
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-06-15&skd-checkout=2026-06-17&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-promotion-code=RA1&skd-property-code=SOH75482&skd-properties-page-size=15&skd-properties-page=1&kbe-widget-id=widget-search-bar-and-rooms-list&kbe-widget-section=rates&transaction-id=6VL89dn5xrXANEb2nOmW6geje59q02XV&contract-id=55846&adult_room1=2",
+                "coordinates": {
+                    "lat": 21.9209285,
+                    "lng": 101.227034
+                }
+            },
+            {
+                "id": "anantara-golden-triangle-elephant-camp-resort",
+                "name": "Anantara Golden Triangle Elephant Camp & Resort",
+                "location": "Chiang Rai",
+                "country": "Thailand",
+                "isSignatureClub": false,
+                "heroImage": "\/assets\/club-escape\/anantara-golden-triangle-elephant-camp-and-resort.jpg",
+                "promotions": [
+                    {
+                        "title": "Club Escapes",
+                        "types": [
+                            "Club Escapes"
+                        ],
+                        "period": "until 17 December 2026",
+                        "details": [
+                            {
+                                "title": "Overlooking the meeting point of Thailand, Laos, and Myanmar along the Mekong River, this extraordinary retreat offers rare encounters with gentle giants in their natural sanctuary.",
+                                "bullet_style": "bullet",
+                                "items": [],
+                                "children": []
+                            }
+                        ],
+                        "stayBy": "December 17, 2026",
+                        "remark1": "Limited-time access for Elite Jade & Elite Ruby Owners with a consecutive Club Resort stay, book & stay by 17 December 2026."
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-08-25&skd-checkout=2026-08-28&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-property-code=SOH75481",
+                "coordinates": {
+                    "lat": 20.3671226,
+                    "lng": 100.077625
+                }
+            },
+            {
+                "id": "avani-plus-luang-prabang-hotel",
+                "name": "Avani+ Luang Prabang Hotel",
+                "location": "Luang Prabang",
+                "country": "Laos",
+                "isSignatureClub": false,
+                "heroImage": "\/assets\/club-escape\/avani-plus-luang-prabang-hotel.jpg",
+                "promotions": [
+                    {
+                        "title": "Club Escape",
+                        "types": [
+                            "Club Escapes"
+                        ],
+                        "period": "until 17 December 2026",
+                        "details": [
+                            {
+                                "title": "A boutique retreat in the heart of this UNESCO World Heritage site, blending French colonial charm with modern comfort \u2014 just steps from temples, night markets, and Mekong sunsets.",
+                                "bullet_style": "bullet",
+                                "items": [],
+                                "children": []
+                            }
+                        ],
+                        "bookBy": "December 31, 2026",
+                        "stayBy": "December 31, 2026",
+                        "remark1": "Limited-time access to Jade for stay and book until 30 November 2026. <br>\nLimited-time access for Ruby and Pearl is also available until 31 December 2026. <br>\nThereafter, this resort is exclusively available to Diamond, Platinum, Royal, Emerald, Sapphire and Prestige only.",
+                        "disclaimer": "Booking including daily $50 USD resort credit per room"
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-08-04&skd-checkout=2026-08-07&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-property-code=AVC000107&skd-properties-page-size=15&skd-properties-page=1&adult_room1=2",
+                "coordinates": {
+                    "lat": 19.8885011,
+                    "lng": 102.1337429
+                }
+            },
+            {
+                "id": "anantara-angkor-resort",
+                "name": "Anantara Angkor Resort",
+                "location": "Siem Reap, Cambodia",
+                "country": "Cambodia",
+                "isSignatureClub": false,
+                "heroImage": "\/assets\/club-escape\/anantara-angkor-resort.jpg",
+                "promotions": [
+                    {
+                        "title": "Club Escapes",
+                        "types": [
+                            "Club Escapes"
+                        ],
+                        "period": "",
+                        "details": [
+                            {
+                                "title": null,
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "<b>Limited-time access<\/b> for Jade Club Points Owners: enjoy access until 30 November 2026",
+                                    "<b>Stay Benefits:<\/b><br>Book by: 30 November 2026<br>Stay by: 30 November 2026<br>Stay 3 nights or more and receive: One-time Complimentary Roundtrip Airport Transfer (Maximum 3 guests per room)."
+                                ],
+                                "children": []
+                            }
+                        ],
+                        "bookBy": "November 30, 2026",
+                        "stayBy": "November 30, 2026",
+                        "remark1": "Exclusively for Ruby, Diamond, Platinum, and Royal Owners, as well as Pearl, Emerald, Sapphire, and Prestige Owners."
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-search-id=Desktop%2FOwner&skd-checkin=2026-08-04&skd-checkout=2026-08-07&skd-total-rooms=1&skd-language-code=en&skd-currency-code=pts&skd-property-code=AVC000101",
+                "coordinates": {
+                    "lat": 13.38,
+                    "lng": 103.85
+                }
+            },
+            {
+                "id": "anantara-guiyang-resort",
+                "name": "Anantara Guiyang Resort",
+                "location": "Guiyang, China",
+                "country": "China",
+                "isSignatureClub": false,
+                "heroImage": "\/assets\/club-escape\/anantara-guiyang-resort.jpg",
+                "promotions": [
+                    {
+                        "title": "Club Escapes",
+                        "types": [
+                            "Club Escapes"
+                        ],
+                        "period": "",
+                        "details": [
+                            {
+                                "title": null,
+                                "bullet_style": "none",
+                                "items": [
+                                    "<b>CLUB ESCAPES<\/b><br><i>Exclusively for Ruby, Diamond, Platinum, and Royal Owners, as well as Emerald, Sapphire, and Prestige Owners.<\/i>"
+                                ],
+                                "children": []
+                            },
+                            {
+                                "title": "1) Promotion \/ Offers:",
+                                "bullet_style": "none",
+                                "items": [
+                                    "<b>Limited-time access<\/b> for Jade & Pearl Club Points Owners: enjoy access throughout year 2026"
+                                ],
+                                "children": []
+                            },
+                            {
+                                "title": "2) Villa Privilege: Now \u2013 31 December 2026",
+                                "bullet_style": "none",
+                                "items": [
+                                    "Book a stay in any of the following villa categories:<br>\u2022 One Bedroom Pool Villa<br>\u2022 Wellness Spa Pool Villa<br>\u2022 Four Bedroom Pool Villa"
+                                ],
+                                "children": []
+                            },
+                            {
+                                "title": "Enjoy the following exclusive privileges during your stay:",
+                                "bullet_style": "bullet",
+                                "items": [
+                                    "<b>Accommodation Offers:<\/b><br>\u2022 Welcome Ceremony<br>\u2022 Private Check-in at the Villa<br>\u2022 On-demand Buggy Shuttle Service<br>\u2022 Dedicated Butler Services, including dining, activity, and spa reservations; scenic spot and local food recommendations; car booking assistance; luggage support and shoeshine service; and in-room souvenir presentation and setup.<br>\u2022 Exclusive Turndown Amenities<br>\u2022 Welcome Fruit and Refreshments<br>\u2022 Two Complimentary Iron for clothes per room per night<br>\u2022 One Free Extra Bed (includes breakfast)",
+                                    "<b>Spa Promotion:<\/b><br>\u2022 Book any 60-minute or longer treatment and receive a complimentary 30-minute Aqua Thai Deep Relaxation Treatment",
+                                    "<b>Dining Offers:<\/b><br>\u2022 Private Dining Experience (advance reservation required): Add RMB 300 to upgrade to an exclusive BBQ dinner<br>\u2022 Private in-villa Dine by Design (DBD) Chef special menu with 15% off discount"
+                                ],
+                                "children": []
+                            },
+                            {
+                                "title": "3. Anantara Vacation Privilege (Available: 1 May \u2013 31 August 2026)",
+                                "bullet_style": "none",
+                                "items": [],
+                                "children": []
+                            },
+                            {
+                                "title": "Food & Beverage",
+                                "bullet_style": "none",
+                                "items": [],
+                                "children": [
+                                    {
+                                        "title": "1.\tDinner Buffet at Fanjing Western Restaurant",
+                                        "bullet_style": "bullet",
+                                        "items": [
+                                            "Receive 50% savings on one child\u2019s dinner buffet (height 1.2\u20131.5m) with a paying adult (limited to one child per room).",
+                                            "This offer is valid for dinner buffet food only and cannot be redeemed for cash, transferred, exchanged for other dining services, or used to offset any other food and beverage expenses."
+                                        ],
+                                        "children": []
+                                    },
+                                    {
+                                        "title": "2.\tSong Dynasty Tea Ceremony \/ Cocktail Class in Lobby Lounge",
+                                        "bullet_style": "bullet",
+                                        "items": [
+                                            "Enjoy a \u201c3-for-2\u201d offer when booking for three persons (one person complimentary). Advance reservation is required."
+                                        ],
+                                        "children": []
+                                    },
+                                    {
+                                        "title": "3.\tAncient Town Restaurant \/ Siam Restaurant",
+                                        "bullet_style": "bullet",
+                                        "items": [
+                                            "Receive one selected bottle of house red wine with a minimum spend of RMB 500 per bill."
+                                        ],
+                                        "children": []
+                                    }
+                                ]
+                            },
+                            {
+                                "title": "Spa",
+                                "bullet_style": "none",
+                                "items": [],
+                                "children": [
+                                    {
+                                        "title": "1.\tTraditional Thai Massage (60 minutes)",
+                                        "bullet_style": "bullet",
+                                        "items": [
+                                            "A timeless healing therapy using rhythmic pressure and assisted stretching to restore energy flow.\nRMB 1,314 per couple"
+                                        ],
+                                        "children": []
+                                    },
+                                    {
+                                        "title": "2.\tSignature Wellness Duo (60 Minutes)",
+                                        "bullet_style": "bullet",
+                                        "items": [
+                                            "Your choice of a rhythmic <b>Anantara Signature Massage<\/b> or a soothing <b>Thai Herbal Compress Massage<\/b>. RMB 1,599 per couple"
+                                        ],
+                                        "children": []
+                                    },
+                                    {
+                                        "title": "3.\tLuxury Journey (120 minutes)",
+                                        "bullet_style": "bullet",
+                                        "items": [
+                                            "A holistic spa experience including facial, body, and foot treatments.\nRMB 1,380 per person"
+                                        ],
+                                        "children": []
+                                    }
+                                ]
+                            }
+                        ],
+                        "bookBy": "December 31, 2026",
+                        "stayBy": "December 31, 2026"
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-property-code=AVC000102",
+                "coordinates": {
+                    "lat": 26.58,
+                    "lng": 106.71
+                }
+            },
+            {
+                "id": "oaks-chengdu",
+                "name": "Oaks Chengdu at Cultural Heritage Park",
+                "location": "Chengdu, China",
+                "country": "China",
+                "isSignatureClub": false,
+                "heroImage": "\/assets\/club-escape\/oaks-chengdu.jpg",
+                "promotions": [
+                    {
+                        "title": "Club Escapes",
+                        "types": [
+                            "Club Escapes"
+                        ],
+                        "period": "",
+                        "details": [
+                            "<b>Limited-time access<\/b> for Jade & Pearl Club Points Owners: enjoy access throughout year 2026",
+                            "<b>Stay Benefits:<\/b> Book\/Stay by 31 Dec 2026<br>",
+                            "\u2022 Daily breakfast for 2",
+                            "\u2022 Access to Executive lounge"
+                        ],
+                        "bookBy": "December 31, 2026",
+                        "stayBy": "December 31, 2026",
+                        "remark1": "Exclusively for Ruby, Diamond, Platinum, and Royal Owners, as well as Emerald, Sapphire, and Prestige Owners."
+                    }
+                ],
+                "limitedTimeOffers": [],
+                "bookLink": "https:\/\/booking.minorvacationclub.com\/propertyRooms?skd-property-code=S004865",
+                "coordinates": {
+                    "lat": 30.67,
+                    "lng": 103.95
+                }
+            }
+        ]
+    }
+}
