@@ -274,7 +274,7 @@ function findSeason(hotel,dateStr){
 // 算某房型某一晚的分。返回 {price, season} 或 {price:null, reason}
 function priceForNight(hotel,roomCode,dateStr){
   const season=findSeason(hotel,dateStr);
-  if(!season) return {price:null,reason:'该日期无数据'};
+  if(!season) return {price:null,reason:'需实时查询(旺季/非固定积分)'};
   const cols=(hotel.prices[roomCode]||{})[season];
   if(!cols) return {price:null,reason:season+'无价'};
   const dc=dowCode(dateStr);
