@@ -1,0 +1,296 @@
+{
+  "hotel_name": "Avani+ Luang Prabang",
+  "hotel_code": "",
+  "updated": "2026-06-27",
+  "years": [
+    "2023",
+    "2024",
+    "2025",
+    "2026",
+    "2027",
+    "2028",
+    "2029"
+  ],
+  "rooms": [
+    {
+      "code": "Dlx_Room",
+      "name": "AVANI Deluxe Room",
+      "max": 2
+    },
+    {
+      "code": "Dlx_Pool_View",
+      "name": "AVANI Deluxe Pool View",
+      "max": 2
+    },
+    {
+      "code": "Suite",
+      "name": "AVANI Suite",
+      "max": 3
+    }
+  ],
+  "seasons": [
+    {
+      "name": "High Season",
+      "cn": "旺季",
+      "periods": [
+        {
+          "start": "2023-12-16",
+          "end": "2023-12-31",
+          "year": "2023"
+        },
+        {
+          "start": "2024-01-01",
+          "end": "2024-02-29",
+          "year": "2024"
+        },
+        {
+          "start": "2024-12-16",
+          "end": "2024-12-31",
+          "year": "2024"
+        },
+        {
+          "start": "2025-01-01",
+          "end": "2025-02-28",
+          "year": "2025"
+        },
+        {
+          "start": "2025-12-16",
+          "end": "2025-12-31",
+          "year": "2025"
+        },
+        {
+          "start": "2026-01-10",
+          "end": "2026-01-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-02-01",
+          "end": "2026-03-31",
+          "year": "2026"
+        },
+        {
+          "start": "2026-10-01",
+          "end": "2026-12-19",
+          "year": "2026"
+        }
+      ]
+    },
+    {
+      "name": "Low Season",
+      "cn": "淡季",
+      "periods": [
+        {
+          "start": "2024-05-04",
+          "end": "2024-09-30",
+          "year": "2024"
+        },
+        {
+          "start": "2025-05-04",
+          "end": "2025-09-30",
+          "year": "2025"
+        },
+        {
+          "start": "2026-04-01",
+          "end": "2026-04-30",
+          "year": "2026"
+        },
+        {
+          "start": "2026-05-01",
+          "end": "2026-05-03",
+          "year": "2026"
+        },
+        {
+          "start": "2026-05-04",
+          "end": "2026-09-30",
+          "year": "2026"
+        },
+        {
+          "start": "2027-05-04",
+          "end": "2027-09-30",
+          "year": "2027"
+        },
+        {
+          "start": "2028-05-04",
+          "end": "2028-09-30",
+          "year": "2028"
+        },
+        {
+          "start": "2029-05-04",
+          "end": "2029-09-30",
+          "year": "2029"
+        }
+      ]
+    },
+    {
+      "name": "Peak Season",
+      "cn": "高峰季",
+      "periods": [
+        {
+          "start": "2026-12-20",
+          "end": "2026-12-31",
+          "year": "2026"
+        },
+        {
+          "start": "2027-12-20",
+          "end": "2027-12-31",
+          "year": "2027"
+        },
+        {
+          "start": "2028-12-20",
+          "end": "2028-12-31",
+          "year": "2028"
+        },
+        {
+          "start": "2029-12-20",
+          "end": "2029-12-31",
+          "year": "2029"
+        }
+      ]
+    }
+  ],
+  "prices": {
+    "Dlx_Room": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1650,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1575,
+          "title": "MON-SUN"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1900,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "Dlx_Pool_View": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2000,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 1850,
+          "title": "MON-SUN"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2200,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "Suite": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2350,
+          "title": "MON-SUN"
+        }
+      ],
+      "Low Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2150,
+          "title": "MON-SUN"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2625,
+          "title": "MON-SUN"
+        }
+      ]
+    }
+  },
+  "closed": [],
+  "coverage_until": "2029-12-31"
+}

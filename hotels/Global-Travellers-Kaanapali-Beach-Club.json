@@ -1,10 +1,8 @@
 {
-  "hotel_name": "Global Travellers - Riviera Beach Resort",
+  "hotel_name": "Global Travellers - Kaanapali Beach Club",
   "hotel_code": "",
-  "updated": "2026-06-26",
+  "updated": "2026-06-27",
   "years": [
-    "2023",
-    "2024",
     "2025",
     "2026",
     "2027",
@@ -13,23 +11,28 @@
   ],
   "rooms": [
     {
-      "code": "1_Bed_Ocean_View",
+      "code": "1Bed_Dlx_Ocean_V",
+      "name": "One Bedroom Deluxe Ocean View",
+      "max": 4
+    },
+    {
+      "code": "1Bed_Ocean_View",
       "name": "One Bedroom Ocean View",
       "max": 4
     },
     {
-      "code": "1Bed_2_Bath",
-      "name": "One Bedroom/ Two Bathroom Ocean View",
+      "code": "1Bed_Scenic_View",
+      "name": "One Bedroom Scenic View",
       "max": 4
     },
     {
-      "code": "2_Bed_Suite",
-      "name": "Two Bedroom Suite",
+      "code": "2Bed",
+      "name": "2 Bedroom",
       "max": 6
     },
     {
-      "code": "2_Bed_Ocean_View",
-      "name": "Two Bedroom Suite Ocean View",
+      "code": "2Bed_Pres_Suite",
+      "name": "Two Bedroom Presidential Suite",
       "max": 6
     }
   ],
@@ -39,57 +42,12 @@
       "cn": "旺季",
       "periods": [
         {
-          "start": "2023-11-22",
-          "end": "2023-12-19",
-          "year": "2023"
-        },
-        {
-          "start": "2024-01-04",
-          "end": "2024-02-14",
-          "year": "2024"
-        },
-        {
-          "start": "2024-02-22",
-          "end": "2024-04-18",
-          "year": "2024"
-        },
-        {
-          "start": "2024-04-26",
-          "end": "2024-05-30",
-          "year": "2024"
-        },
-        {
-          "start": "2024-09-27",
-          "end": "2024-11-14",
-          "year": "2024"
-        },
-        {
-          "start": "2024-11-22",
-          "end": "2024-12-19",
-          "year": "2024"
-        },
-        {
-          "start": "2025-01-04",
-          "end": "2025-02-14",
+          "start": "2025-07-05",
+          "end": "2025-11-21",
           "year": "2025"
         },
         {
-          "start": "2025-02-22",
-          "end": "2025-04-18",
-          "year": "2025"
-        },
-        {
-          "start": "2025-04-26",
-          "end": "2025-05-30",
-          "year": "2025"
-        },
-        {
-          "start": "2025-09-27",
-          "end": "2025-11-14",
-          "year": "2025"
-        },
-        {
-          "start": "2025-11-22",
+          "start": "2025-11-29",
           "end": "2025-11-30",
           "year": "2025"
         },
@@ -105,62 +63,52 @@
         },
         {
           "start": "2026-02-01",
-          "end": "2026-02-14",
+          "end": "2026-03-21",
           "year": "2026"
         },
         {
-          "start": "2026-02-22",
-          "end": "2026-04-18",
+          "start": "2026-04-05",
+          "end": "2026-05-03",
           "year": "2026"
         },
         {
-          "start": "2026-04-26",
-          "end": "2026-05-30",
+          "start": "2026-05-04",
+          "end": "2026-06-27",
           "year": "2026"
         },
         {
-          "start": "2026-09-27",
-          "end": "2026-11-14",
+          "start": "2026-07-05",
+          "end": "2026-11-21",
           "year": "2026"
         },
         {
-          "start": "2026-11-22",
+          "start": "2026-11-29",
           "end": "2026-12-19",
           "year": "2026"
         },
         {
           "start": "2027-01-04",
-          "end": "2027-02-14",
+          "end": "2027-03-21",
           "year": "2027"
         },
         {
-          "start": "2027-02-22",
-          "end": "2027-04-18",
+          "start": "2027-04-05",
+          "end": "2027-06-27",
           "year": "2027"
         },
         {
-          "start": "2027-04-26",
-          "end": "2027-05-30",
+          "start": "2027-07-05",
+          "end": "2027-11-21",
           "year": "2027"
         },
         {
-          "start": "2027-09-27",
-          "end": "2027-11-14",
-          "year": "2027"
-        },
-        {
-          "start": "2027-11-22",
+          "start": "2027-11-29",
           "end": "2027-12-19",
           "year": "2027"
         },
         {
-          "start": "2028-11-22",
-          "end": "2028-12-19",
-          "year": "2028"
-        },
-        {
-          "start": "2029-11-22",
-          "end": "2029-12-19",
+          "start": "2029-07-05",
+          "end": "2029-11-21",
           "year": "2029"
         }
       ]
@@ -170,43 +118,8 @@
       "cn": "高峰季",
       "periods": [
         {
-          "start": "2024-04-19",
-          "end": "2024-04-25",
-          "year": "2024"
-        },
-        {
-          "start": "2024-05-31",
-          "end": "2024-09-26",
-          "year": "2024"
-        },
-        {
-          "start": "2024-11-15",
-          "end": "2024-11-21",
-          "year": "2024"
-        },
-        {
-          "start": "2024-12-20",
-          "end": "2024-12-31",
-          "year": "2024"
-        },
-        {
-          "start": "2025-01-01",
-          "end": "2025-01-03",
-          "year": "2025"
-        },
-        {
-          "start": "2025-02-15",
-          "end": "2025-02-21",
-          "year": "2025"
-        },
-        {
-          "start": "2025-05-31",
-          "end": "2025-09-26",
-          "year": "2025"
-        },
-        {
-          "start": "2025-11-15",
-          "end": "2025-11-21",
+          "start": "2025-11-22",
+          "end": "2025-11-28",
           "year": "2025"
         },
         {
@@ -220,23 +133,18 @@
           "year": "2026"
         },
         {
-          "start": "2026-02-15",
-          "end": "2026-02-21",
+          "start": "2026-03-22",
+          "end": "2026-04-04",
           "year": "2026"
         },
         {
-          "start": "2026-04-19",
-          "end": "2026-04-25",
+          "start": "2026-06-28",
+          "end": "2026-07-04",
           "year": "2026"
         },
         {
-          "start": "2026-05-31",
-          "end": "2026-09-26",
-          "year": "2026"
-        },
-        {
-          "start": "2026-11-15",
-          "end": "2026-11-21",
+          "start": "2026-11-22",
+          "end": "2026-11-28",
           "year": "2026"
         },
         {
@@ -250,23 +158,18 @@
           "year": "2027"
         },
         {
-          "start": "2027-02-15",
-          "end": "2027-02-21",
+          "start": "2027-03-22",
+          "end": "2027-04-04",
           "year": "2027"
         },
         {
-          "start": "2027-04-19",
-          "end": "2027-04-25",
+          "start": "2027-06-28",
+          "end": "2027-07-04",
           "year": "2027"
         },
         {
-          "start": "2027-05-31",
-          "end": "2027-09-26",
-          "year": "2027"
-        },
-        {
-          "start": "2027-11-15",
-          "end": "2027-11-21",
+          "start": "2027-11-22",
+          "end": "2027-11-28",
           "year": "2027"
         },
         {
@@ -275,20 +178,20 @@
           "year": "2027"
         },
         {
-          "start": "2028-04-19",
-          "end": "2028-04-25",
+          "start": "2028-01-01",
+          "end": "2028-01-03",
           "year": "2028"
         },
         {
-          "start": "2029-04-19",
-          "end": "2029-04-25",
+          "start": "2029-11-22",
+          "end": "2029-11-28",
           "year": "2029"
         }
       ]
     }
   ],
   "prices": {
-    "1_Bed_Ocean_View": {
+    "1Bed_Dlx_Ocean_V": {
       "High Season": [
         {
           "days": [
@@ -300,7 +203,7 @@
             "SAT",
             "SUN"
           ],
-          "price": 1520,
+          "price": 1580,
           "title": "MON-SUN"
         }
       ],
@@ -315,12 +218,12 @@
             "SAT",
             "SUN"
           ],
-          "price": 1830,
+          "price": 2650,
           "title": "MON-SUN"
         }
       ]
     },
-    "1Bed_2_Bath": {
+    "1Bed_Ocean_View": {
       "High Season": [
         {
           "days": [
@@ -332,7 +235,7 @@
             "SAT",
             "SUN"
           ],
-          "price": 1920,
+          "price": 1740,
           "title": "MON-SUN"
         }
       ],
@@ -347,12 +250,12 @@
             "SAT",
             "SUN"
           ],
-          "price": 2080,
+          "price": 2410,
           "title": "MON-SUN"
         }
       ]
     },
-    "2_Bed_Suite": {
+    "1Bed_Scenic_View": {
       "High Season": [
         {
           "days": [
@@ -364,7 +267,7 @@
             "SAT",
             "SUN"
           ],
-          "price": 2160,
+          "price": 1580,
           "title": "MON-SUN"
         }
       ],
@@ -379,12 +282,12 @@
             "SAT",
             "SUN"
           ],
-          "price": 2590,
+          "price": 2190,
           "title": "MON-SUN"
         }
       ]
     },
-    "2_Bed_Ocean_View": {
+    "2Bed": {
       "High Season": [
         {
           "days": [
@@ -396,7 +299,7 @@
             "SAT",
             "SUN"
           ],
-          "price": 2940,
+          "price": 2250,
           "title": "MON-SUN"
         }
       ],
@@ -411,12 +314,44 @@
             "SAT",
             "SUN"
           ],
-          "price": 3170,
+          "price": 3050,
+          "title": "MON-SUN"
+        }
+      ]
+    },
+    "2Bed_Pres_Suite": {
+      "High Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 2470,
+          "title": "MON-SUN"
+        }
+      ],
+      "Peak Season": [
+        {
+          "days": [
+            "MON",
+            "TUE",
+            "WED",
+            "THU",
+            "FRI",
+            "SAT",
+            "SUN"
+          ],
+          "price": 3350,
           "title": "MON-SUN"
         }
       ]
     }
   },
   "closed": [],
-  "coverage_until": "2029-12-19"
+  "coverage_until": "2029-11-28"
 }
