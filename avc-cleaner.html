@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVC 积分数据清洗工具</title>
+<style>
+  :root{
+    --bg:#0f1417; --panel:#161d22; --panel2:#1c252b; --line:#2a363d;
+    --ink:#e8eef1; --ink-dim:#8c9aa2;
+    --gold:#c9a35c; --gold-bright:#e3c07f;
+    --ok:#4caf7d; --warn:#e0a03a; --err:#e2604f;
+    --mono:'SF Mono',ui-monospace,'JetBrains Mono',Consolas,monospace;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Segoe UI','PingFang SC','Microsoft YaHei',system-ui,sans-serif;
+    line-height:1.6;
+  }
+  .wrap{max-width:1100px;margin:0 auto;padding:32px 24px 80px}
+  header{border-bottom:1px solid var(--line);padding-bottom:20px;margin-bottom:28px}
+  .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);margin:0 0 8px}
+  h1{margin:0;font-size:26px;font-weight:600;letter-spacing:-.01em}
+  .sub{color:var(--ink-dim);font-size:14px;margin-top:6px}
+
+  .step-label{font-family:var(--mono);font-size:12px;color:var(--gold);letter-spacing:.1em;margin:28px 0 10px;display:flex;align-items:center;gap:8px}
+  .step-num{display:inline-flex;width:20px;height:20px;border:1px solid var(--gold);border-radius:50%;align-items:center;justify-content:center;font-size:11px}
+
+  .field-row{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:14px}
+  .field{flex:1;min-width:200px}
+  label{display:block;font-size:12px;color:var(--ink-dim);margin-bottom:5px}
+  input[type=text]{
+    width:100%;background:var(--panel);border:1px solid var(--line);color:var(--ink);
+    padding:10px 12px;border-radius:7px;font-size:14px;font-family:inherit;
+  }
+  input[type=text]:focus{outline:none;border-color:var(--gold)}
+
+  textarea{
+    width:100%;height:160px;background:var(--panel);border:1px solid var(--line);
+    color:var(--ink);padding:12px;border-radius:8px;font-family:var(--mono);
+    font-size:12px;resize:vertical;
+  }
+  textarea:focus{outline:none;border-color:var(--gold)}
+
+  .btn{
+    background:var(--gold);color:#1a1206;border:none;padding:12px 22px;border-radius:8px;
+    font-size:14px;font-weight:600;cursor:pointer;font-family:inherit;letter-spacing:.02em;
+  }
+  .btn:hover{background:var(--gold-bright)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink)}
+  .btn-ghost:hover{border-color:var(--gold);color:var(--gold-bright)}
+  .btn-row{display:flex;gap:10px;margin-top:14px;flex-wrap:wrap}
+
+  .report{margin-top:28px;display:none}
+  .report.show{display:block}
+
+  .verdict{padding:18px 20px;border-radius:10px;margin-bottom:20px;border:1px solid}
+  .verdict.pass{background:rgba(76,175,125,.08);border-color:var(--ok)}
+  .verdict.fail{background:rgba(226,96,79,.08);border-color:var(--err)}
+  .verdict-title{font-size:17px;font-weight:600;display:flex;align-items:center;gap:10px;margin-bottom:6px}
+  .verdict.pass .verdict-title{color:var(--ok)}
+  .verdict.fail .verdict-title{color:var(--err)}
+  .verdict-detail{font-size:13px;color:var(--ink-dim)}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:12px;margin-bottom:22px}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:14px}
+  .stat-num{font-size:24px;font-weight:600;color:var(--gold-bright);font-family:var(--mono)}
+  .stat-label{font-size:11px;color:var(--ink-dim);margin-top:3px}
+
+  .section-h{font-size:14px;font-weight:600;margin:24px 0 10px;color:var(--ink);border-left:3px solid var(--gold);padding-left:10px}
+
+  .alert{padding:10px 14px;border-radius:7px;font-size:13px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+  .alert.warn{background:rgba(224,160,58,.1);border:1px solid rgba(224,160,58,.3);color:var(--warn)}
+  .alert.err{background:rgba(226,96,79,.1);border:1px solid rgba(226,96,79,.3);color:var(--err)}
+  .alert-ico{font-weight:700;flex-shrink:0}
+
+  table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:8px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th{color:var(--gold);font-weight:600;font-size:12px;font-family:var(--mono);letter-spacing:.04em}
+  td.room{font-weight:600;color:var(--ink)}
+  .price-cell{font-family:var(--mono)}
+  .closed{color:var(--err);font-size:12px}
+  .season-tag{display:inline-block;font-size:10px;padding:1px 7px;border-radius:4px;font-family:var(--mono);letter-spacing:.03em}
+  .s-low{background:rgba(76,175,125,.15);color:var(--ok)}
+  .s-mid{background:rgba(201,163,92,.15);color:var(--gold)}
+  .s-high{background:rgba(224,160,58,.15);color:var(--warn)}
+  .s-peak{background:rgba(226,96,79,.15);color:var(--err)}
+
+  .out-box{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:0;margin-top:8px}
+  .out-box textarea{border:none;height:200px;margin:0;display:block}
+
+  .hint{font-size:12px;color:var(--ink-dim);margin-top:6px}
+  details{margin-top:10px}
+  summary{cursor:pointer;color:var(--gold);font-size:13px}
+  code{font-family:var(--mono);background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12px}
+  .copied{color:var(--ok);font-size:12px;margin-left:10px}
+
+  .import-tabs{display:flex;gap:8px;margin-bottom:14px}
+  .tab{background:var(--panel);border:1px solid var(--line);color:var(--ink-dim);padding:9px 16px;border-radius:7px;font-size:13px;cursor:pointer;font-family:inherit}
+  .tab.active{border-color:var(--gold);color:var(--gold-bright);background:var(--panel2)}
+  .dropzone{border:2px dashed var(--line);border-radius:12px;padding:36px 20px;text-align:center;cursor:pointer;transition:border-color .15s,background .15s;background:var(--panel)}
+  .dropzone:hover,.dropzone.drag{border-color:var(--gold);background:var(--panel2)}
+  .dz-ico{font-size:28px;color:var(--gold);margin-bottom:10px}
+  .dz-main{font-size:15px;color:var(--ink);margin-bottom:5px}
+  .dz-sub{font-size:12px;color:var(--ink-dim)}
+  .dz-sub.loaded{color:var(--ok)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Anantara Vacation Club · Internal Tool</p>
+    <h1>积分数据清洗工具</h1>
+    <p class="sub">把扒来的原始 JSON 变成精简数据库 · 全程本地运行 · 自动核对原始数据,洗不准的拦下来</p>
+  </header>
+
+  <!-- 步骤1 -->
+  <div class="step-label"><span class="step-num">1</span> 填写酒店信息</div>
+  <div class="field-row">
+    <div class="field">
+      <label>酒店名称(中文,随你写)</label>
+      <input type="text" id="hotelName" placeholder="例:Avani 苏梅岛">
+    </div>
+    <div class="field">
+      <label>酒店代码(网址 hotel-profile/ 后面那串)</label>
+      <input type="text" id="hotelCode" placeholder="例:S004482">
+    </div>
+  </div>
+
+  <!-- 步骤2 -->
+  <div class="step-label"><span class="step-num">2</span> 导入原始 JSON</div>
+
+  <div class="import-tabs">
+    <button class="tab active" id="tabFile">① 选文件(推荐,不卡)</button>
+    <button class="tab" id="tabPaste">② 粘贴文本</button>
+  </div>
+
+  <!-- 方式A：选文件 -->
+  <div id="fileMode">
+    <div class="dropzone" id="dropzone">
+      <input type="file" id="fileInput" accept=".json,.txt" style="display:none">
+      <div class="dz-inner">
+        <div class="dz-ico">⬆</div>
+        <div class="dz-main">点这里选文件,或把 .json / .txt 拖进来</div>
+        <div class="dz-sub" id="dzStatus">先把扒来的数据存成文件,再选它 —— 大文件这样最稳</div>
+      </div>
+    </div>
+    <p class="hint">怎么存文件:Network 里右键 <code>seasonality-data</code> → <b>Copy → Copy response</b> → 粘进记事本 → 另存为 <code>.txt</code>。或者直接右键那条 → <b>Save all as HAR</b> 不用,用 Copy response 即可。</p>
+  </div>
+
+  <!-- 方式B：粘贴 -->
+  <div id="pasteMode" style="display:none">
+    <textarea id="rawInput" placeholder="把 seasonality-data 接口的完整 response 粘贴到这里…（数据很大时这里可能会卡几秒，请耐心；卡得厉害就改用①选文件）"></textarea>
+    <p class="hint">来源:酒店页面 → F12 → Network → Fetch/XHR → 找 <code>seasonality-data</code> → 右键 Copy → Copy response</p>
+  </div>
+
+  <div class="btn-row">
+    <button class="btn" id="runBtn">清洗 + 自检</button>
+    <button class="btn-ghost" id="sampleBtn">填入苏梅示例数据</button>
+  </div>
+
+  <!-- 报告区 -->
+  <div class="report" id="report"></div>
+</div>
+
+<script>
+//==================== 配置:规则在这里，一目了然 ====================
+// 促销/套餐 rate_plan：名称带这些词的，一律视为促销排除（不同酒店促销名不同，持续补充）
+const PROMO_KEYWORDS = [
+  'Wellness','Reset','Getaway','Expedition','Promoion','Promotion','Package',
+  'Samui','Escape','Experience','Adventure','Spa','Dining','Romance','Honeymoon',
+  '促销','套餐','活动'
+];
+// 基础价优先关键词：名称带这些的，优先认作基础价（命名各异，仅作加分参考）
+const BASE_HINT = ['Room Only','免费早餐','Complimentary Breakfast','Breakfast','客房','房费','Points Rate','积分价格'];
+const SEASON_ORDER = ['Low Season','Mid Season','High Season','Peak Season'];
+const SEASON_CN = {'Low Season':'淡季','Mid Season':'平季','High Season':'旺季','Peak Season':'高峰季'};
+const SEASON_CLS = {'Low Season':'s-low','Mid Season':'s-mid','High Season':'s-high','Peak Season':'s-peak'};
+const DAY_CN = {MON:'一',TUE:'二',WED:'三',THU:'四',FRI:'五',SAT:'六',SUN:'日'};
+
+function isPromo(rp){ return PROMO_KEYWORDS.some(k=>rp.toLowerCase().includes(k.toLowerCase())); }
+// 在一个 (房型,季节) 下的多个候选 plan 里，挑出基础价那条
+// 策略：排除促销 → 剩下的取「最低非0价」那条（基础房价一定比带套餐的便宜）
+function pickBasePlan(planList){
+  // planList: [{rate_plan, columns}]
+  const nonPromo = planList.filter(p=>!isPromo(p.rate_plan));
+  const pool = nonPromo.length ? nonPromo : planList; // 万一全是促销，兜底用全部
+  // 每条算一个「最低非0价」用于比较
+  function minNonZero(cols){
+    const vals = cols.map(c=>c.price).filter(v=>v>0);
+    return vals.length ? Math.min(...vals) : Infinity;
+  }
+  // 优先：有非0价的里取最低；如果都是0，取第一条（不开放）
+  let best=null, bestMin=Infinity;
+  pool.forEach(p=>{
+    const m = minNonZero(p.columns);
+    if(m < bestMin){ bestMin=m; best=p; }
+  });
+  if(!best) best = pool[0];
+  return best;
+}
+function daysLabel(days){
+  if(days.length===7) return '每天';
+  return '周'+days.map(d=>DAY_CN[d]||d).join('');
+}
+
+//==================== 主流程 ====================
+function process(raw, hotelName, hotelCode){
+  let parsed;
+  try { parsed = JSON.parse(raw); }
+  catch(e){ return {fatal:'JSON 格式错误,无法解析。请确认你粘贴的是完整的 response。\n\n('+e.message+')'}; }
+
+  const d = parsed.data;
+  if(!d || !d.season_periods || !d.rooms){
+    return {fatal:'这不像是 seasonality-data 接口的数据(缺 data.season_periods 或 data.rooms)。请确认你扒的是对的那一条接口。'};
+  }
+
+  const warnings = [];
+  const errors = [];
+
+  // 房型
+  const rooms = d.rooms.map(r=>({code:r.code, name:r.type_name, max:r.max_occup}));
+  const roomCodes = rooms.map(r=>r.code);
+
+  // 跨年合并：扫描所有年份，保留有非0价格的季节段
+  const years = Object.keys(d.season_periods).sort();
+  // 结构：prices[roomCode][seasonName] = columns[]  （取第一次遇到的有效基础价）
+  const prices = {};
+  // 季节日期段：seasons[seasonName] = [{start,end,year}]
+  const seasonPeriods = {};
+  // 记录哪些 (room,season) 是全0（不开放）
+  const closedSet = new Set();
+  // 记录每个 (room,season) 实际来源年份，自检用
+  const sourceMap = {}; // key: room|season -> {year, periodIndex, piIndex}
+
+  let totalPricePoints = 0;
+  let multiPlanCount = 0;
+  const chosenPlans = {}; // code|season -> 选中的 rate_plan 名（核对用）
+
+  years.forEach(year=>{
+    d.season_periods[year].forEach((period, pIdx)=>{
+      const sname = period.season_name;
+      // 收集季节日期段
+      if(!seasonPeriods[sname]) seasonPeriods[sname]=[];
+      seasonPeriods[sname].push({start:period.start, end:period.end, year});
+
+      // 1) 先按房型把这个季节段里的所有 plan 分组
+      const byRoom = {}; // code -> [{rate_plan, columns, piIdx}]
+      period.price_info.forEach((pi, piIdx)=>{
+        const code = pi.room_code;
+        if(!roomCodes.includes(code)) return;
+        if(!byRoom[code]) byRoom[code]=[];
+        byRoom[code].push({
+          rate_plan: pi.rate_plan,
+          columns: pi.columns.map(c=>({days:c.days, price:c.price, title:c.title})),
+          piIdx
+        });
+      });
+
+      // 2) 每个房型挑出基础价那条
+      Object.entries(byRoom).forEach(([code, planList])=>{
+        if(planList.length>1) multiPlanCount++;
+        const chosen = pickBasePlan(planList);
+        const cols = chosen.columns;
+        const allZero = cols.every(c=>c.price===0);
+
+        if(!prices[code]) prices[code]={};
+        const existing = prices[code][sname];
+        const existingValid = existing && !existing.every(c=>c.price===0);
+
+        if(!existing){
+          prices[code][sname]=cols;
+          sourceMap[code+'|'+sname]={year,pIdx,piIdx:chosen.piIdx};
+          chosenPlans[code+'|'+sname]=chosen.rate_plan;
+          if(allZero) closedSet.add(code+'|'+sname);
+        } else if(!existingValid && !allZero){
+          prices[code][sname]=cols;
+          sourceMap[code+'|'+sname]={year,pIdx,piIdx:chosen.piIdx};
+          chosenPlans[code+'|'+sname]=chosen.rate_plan;
+          closedSet.delete(code+'|'+sname);
+        }
+      });
+    });
+  });
+
+  //========== 自检：清洗结果 vs 原始数据，逐格回验 ==========
+  let checkedPoints=0, mismatches=0;
+  const mismatchDetails=[];
+
+  roomCodes.forEach(code=>{
+    if(!prices[code]) return;
+    Object.keys(prices[code]).forEach(sname=>{
+      const cleaned = prices[code][sname];
+      const src = sourceMap[code+'|'+sname];
+      if(!src){ return; }
+      // 回到原始数据找这一条
+      const origPi = d.season_periods[src.year][src.pIdx].price_info[src.piIdx];
+      // 验证：房型对、是基础价、列数与价格逐一对得上
+      cleaned.forEach((col, ci)=>{
+        checkedPoints++;
+        totalPricePoints++;
+        const origCol = origPi.columns[ci];
+        if(!origCol){
+          mismatches++; mismatchDetails.push(`${code} ${sname} 第${ci+1}档:清洗后有,原始没有`);
+          return;
+        }
+        if(origCol.price!==col.price){
+          mismatches++;
+          mismatchDetails.push(`${code} ${sname} ${daysLabel(col.days)}:清洗后${col.price},原始${origCol.price}`);
+        }
+        if(origPi.room_code!==code){
+          mismatches++;
+          mismatchDetails.push(`${code} ${sname}:房型代码错配(原始是${origPi.room_code})`);
+        }
+      });
+    });
+  });
+
+  //========== 各种合理性警告 ==========
+  // 1. 房型缺失检查
+  roomCodes.forEach(code=>{
+    if(!prices[code] || Object.keys(prices[code]).length===0){
+      warnings.push(`房型「${rooms.find(r=>r.code===code).name}」没有提取到任何基础价,可能这家结构特殊,请核对`);
+    }
+  });
+  // 2. 全0（不开放）统计
+  const closedList=[];
+  closedSet.forEach(k=>{
+    const [code,sname]=k.split('|');
+    closedList.push(`${rooms.find(r=>r.code===code)?.name||code} · ${SEASON_CN[sname]||sname}`);
+  });
+  // 3. 显示选中的 plan 名（让用户核对取的是不是基础价）
+  const planNames = new Set(Object.values(chosenPlans).filter(Boolean));
+  if(planNames.size>0){
+    warnings.push(`本次作为「基础价」采用的 rate plan:${Array.from(planNames).join('、')}。请确认这些是纯房费/基础价,不是带套餐的促销`);
+  }
+  if(multiPlanCount>0){
+    warnings.push(`有 ${multiPlanCount} 处同房型同季节存在多个 rate plan,工具已自动排除促销、取最低价那条作为基础价`);
+  }
+  // 4. 价格异常范围检查
+  let allPrices=[];
+  Object.values(prices).forEach(byS=>Object.values(byS).forEach(cols=>cols.forEach(c=>{if(c.price>0)allPrices.push(c.price);})));
+  const minP = allPrices.length?Math.min(...allPrices):0;
+  const maxP = allPrices.length?Math.max(...allPrices):0;
+  if(maxP>50000) warnings.push(`最高分 ${maxP} 异常偏高,请核对是否抓错字段`);
+  if(allPrices.length===0) errors.push('没有提取到任何有效价格(全是0或无基础价),请确认数据正确');
+
+  // 输出精简结构
+  const output = {
+    hotel_name: hotelName||'(未命名)',
+    hotel_code: hotelCode||'',
+    updated: new Date().toISOString().slice(0,10),
+    years: years,
+    rooms: rooms,
+    seasons: Object.keys(seasonPeriods).map(name=>({
+      name, cn:SEASON_CN[name]||name, periods:seasonPeriods[name]
+    })),
+    prices: prices,
+    closed: Array.from(closedSet)
+  };
+
+  // 覆盖截止日期（所有非0段里最晚的 end）
+  let latestEnd='';
+  Object.values(seasonPeriods).forEach(arr=>arr.forEach(p=>{ if(p.end>latestEnd) latestEnd=p.end; }));
+  output.coverage_until = latestEnd;
+
+  return {
+    output, rooms, prices, seasonPeriods, closedList,
+    warnings, errors, mismatches, mismatchDetails, checkedPoints,
+    totalPricePoints, minP, maxP, years, coverage_until: latestEnd
+  };
+}
+
+//==================== 渲染报告 ====================
+function render(r){
+  const box = document.getElementById('report');
+  box.classList.add('show');
+
+  if(r.fatal){
+    box.innerHTML = `<div class="verdict fail"><div class="verdict-title">✕ 无法处理</div>
+      <div class="verdict-detail" style="white-space:pre-wrap">${r.fatal}</div></div>`;
+    box.scrollIntoView({behavior:'smooth'});
+    return;
+  }
+
+  const pass = r.mismatches===0 && r.errors.length===0;
+
+  let html = '';
+
+  // 结论
+  if(pass){
+    html += `<div class="verdict pass">
+      <div class="verdict-title">✓ 自检通过 — 数据与原始一致,可保存</div>
+      <div class="verdict-detail">逐格核对了 ${r.checkedPoints} 个价格点,全部能在原始数据里对上,且都来自基础价(非促销)。${r.warnings.length?' 另有 '+r.warnings.length+' 条提示建议你扫一眼。':''}</div>
+    </div>`;
+  } else {
+    html += `<div class="verdict fail">
+      <div class="verdict-title">✕ 自检发现问题 — 请勿直接使用</div>
+      <div class="verdict-detail">核对 ${r.checkedPoints} 个价格点,发现 ${r.mismatches} 处不一致${r.errors.length?' + '+r.errors.length+' 个错误':''}。详情见下方,修正前别保存。</div>
+    </div>`;
+  }
+
+  // 体检数据
+  html += `<div class="stats">
+    <div class="stat"><div class="stat-num">${r.rooms.length}</div><div class="stat-label">房型数量</div></div>
+    <div class="stat"><div class="stat-num">${Object.keys(r.seasonPeriods).length}</div><div class="stat-label">季节种类</div></div>
+    <div class="stat"><div class="stat-num">${r.checkedPoints}</div><div class="stat-label">已核对价格点</div></div>
+    <div class="stat"><div class="stat-num">${r.minP}–${r.maxP}</div><div class="stat-label">分数范围</div></div>
+    <div class="stat"><div class="stat-num">${r.coverage_until||'—'}</div><div class="stat-label">覆盖截止</div></div>
+  </div>`;
+
+  // 错误
+  if(r.errors.length){
+    html += `<div class="section-h">错误</div>`;
+    r.errors.forEach(e=> html += `<div class="alert err"><span class="alert-ico">✕</span><span>${e}</span></div>`);
+  }
+  // 不一致明细
+  if(r.mismatchDetails.length){
+    html += `<div class="section-h">不一致明细</div>`;
+    r.mismatchDetails.forEach(m=> html += `<div class="alert err"><span class="alert-ico">≠</span><span>${m}</span></div>`);
+  }
+  // 警告
+  if(r.warnings.length){
+    html += `<div class="section-h">提示(不影响保存,但建议核对)</div>`;
+    r.warnings.forEach(w=> html += `<div class="alert warn"><span class="alert-ico">⚠</span><span>${w}</span></div>`);
+  }
+  // 不开放
+  if(r.closedList.length){
+    html += `<div class="section-h">旺季不开放积分预订(已自动排除筛选)</div>`;
+    html += `<div class="alert warn"><span class="alert-ico">⊘</span><span>${r.closedList.join('  ·  ')}</span></div>`;
+  }
+
+  // 对照表
+  html += `<div class="section-h">清洗结果对照表(请对着官网扫一眼)</div>`;
+  html += renderTable(r);
+
+  // 输出
+  html += `<div class="section-h">精简数据(复制走,粘进数据库)</div>`;
+  html += `<div class="out-box"><textarea id="outArea" readonly>${JSON.stringify(r.output)}</textarea></div>`;
+  html += `<div class="btn-row">
+    <button class="btn" id="copyBtn">复制精简数据</button>
+    <button class="btn-ghost" id="dlBtn">下载为 .json 文件</button>
+    <span class="copied" id="copiedMsg"></span>
+  </div>`;
+  html += `<details><summary>查看格式化的完整数据(给好奇的你)</summary>
+    <div class="out-box"><textarea readonly>${JSON.stringify(r.output,null,2)}</textarea></div></details>`;
+
+  box.innerHTML = html;
+
+  // 绑定复制/下载
+  document.getElementById('copyBtn').onclick = ()=>{
+    const ta=document.getElementById('outArea'); ta.select();
+    navigator.clipboard.writeText(ta.value).then(()=>{
+      document.getElementById('copiedMsg').textContent='已复制 ✓';
+      setTimeout(()=>document.getElementById('copiedMsg').textContent='',2000);
+    });
+  };
+  document.getElementById('dlBtn').onclick = ()=>{
+    const blob=new Blob([JSON.stringify(r.output,null,2)],{type:'application/json'});
+    const a=document.createElement('a');
+    a.href=URL.createObjectURL(blob);
+    // 文件名：优先英文名，其次代码，都没有用日期兜底；清理空格和非法字符
+    let base = (r.output.hotel_name && r.output.hotel_name!=='(未命名)')
+                 ? r.output.hotel_name
+                 : (r.output.hotel_code || ('hotel-'+r.output.updated));
+    base = base.replace(/[\\/:*?"<>|]/g,'').replace(/\s+/g,'-');
+    a.download = base + '.json';
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  };
+
+  box.scrollIntoView({behavior:'smooth'});
+}
+
+function renderTable(r){
+  const seasons = Object.keys(r.seasonPeriods).sort((a,b)=>SEASON_ORDER.indexOf(a)-SEASON_ORDER.indexOf(b));
+  let h = '<table><thead><tr><th>房型</th>';
+  seasons.forEach(s=> h+=`<th><span class="season-tag ${SEASON_CLS[s]||''}">${SEASON_CN[s]||s}</span></th>`);
+  h += '</tr></thead><tbody>';
+
+  r.rooms.forEach(room=>{
+    h += `<tr><td class="room">${room.name}</td>`;
+    seasons.forEach(s=>{
+      const cols = r.prices[room.code]&&r.prices[room.code][s];
+      if(!cols){ h+='<td>—</td>'; return; }
+      const allZero = cols.every(c=>c.price===0);
+      if(allZero){ h+='<td><span class="closed">不开放</span></td>'; return; }
+      const parts = cols.filter(c=>c.price>0).map(c=>`${daysLabel(c.days)} ${c.price}`);
+      h += `<td class="price-cell">${parts.join('<br>')}</td>`;
+    });
+    h += '</tr>';
+  });
+  h += '</tbody></table>';
+  return h;
+}
+
+//==================== 事件 ====================
+let loadedFileContent = null;  // 选文件方式读到的内容
+let currentMode = 'file';
+
+// 标签切换
+document.getElementById('tabFile').onclick = ()=>{
+  currentMode='file';
+  document.getElementById('tabFile').classList.add('active');
+  document.getElementById('tabPaste').classList.remove('active');
+  document.getElementById('fileMode').style.display='';
+  document.getElementById('pasteMode').style.display='none';
+};
+document.getElementById('tabPaste').onclick = ()=>{
+  currentMode='paste';
+  document.getElementById('tabPaste').classList.add('active');
+  document.getElementById('tabFile').classList.remove('active');
+  document.getElementById('pasteMode').style.display='';
+  document.getElementById('fileMode').style.display='none';
+};
+
+// 文件选择
+const dropzone = document.getElementById('dropzone');
+const fileInput = document.getElementById('fileInput');
+const dzStatus = document.getElementById('dzStatus');
+
+dropzone.onclick = ()=> fileInput.click();
+fileInput.onchange = (e)=>{ if(e.target.files[0]) readFile(e.target.files[0]); };
+
+dropzone.ondragover = (e)=>{ e.preventDefault(); dropzone.classList.add('drag'); };
+dropzone.ondragleave = ()=> dropzone.classList.remove('drag');
+dropzone.ondrop = (e)=>{
+  e.preventDefault(); dropzone.classList.remove('drag');
+  if(e.dataTransfer.files[0]) readFile(e.dataTransfer.files[0]);
+};
+
+function readFile(file){
+  dzStatus.textContent = '读取中… '+file.name;
+  dzStatus.classList.remove('loaded');
+  const reader = new FileReader();
+  reader.onload = (ev)=>{
+    loadedFileContent = ev.target.result;
+    const kb = Math.round(file.size/1024);
+    dzStatus.textContent = '已载入:'+file.name+'('+kb+' KB)— 点下方「清洗 + 自检」';
+    dzStatus.classList.add('loaded');
+  };
+  reader.onerror = ()=>{ dzStatus.textContent='读取失败,请重试'; };
+  reader.readAsText(file);
+}
+
+document.getElementById('runBtn').onclick = ()=>{
+  let raw;
+  if(currentMode==='file'){
+    raw = loadedFileContent;
+    if(!raw){ alert('请先选一个文件'); return; }
+  } else {
+    raw = document.getElementById('rawInput').value.trim();
+    if(!raw){ alert('请先粘贴原始 JSON'); return; }
+  }
+  const name = document.getElementById('hotelName').value.trim();
+  const code = document.getElementById('hotelCode').value.trim();
+  // 让"处理中"先显示出来，避免大数据时界面像死了
+  const btn = document.getElementById('runBtn');
+  btn.textContent='处理中…'; btn.disabled=true;
+  setTimeout(()=>{
+    const r = process(raw, name, code);
+    render(r);
+    btn.textContent='清洗 + 自检'; btn.disabled=false;
+  }, 30);
+};
+
+// 示例按钮（用一段真实苏梅数据的精简版做演示，方便你先看效果）
+document.getElementById('sampleBtn').onclick = ()=>{
+  document.getElementById('hotelName').value='AVANI Samui';
+  document.getElementById('hotelCode').value='S004482';
+  // 示例切到粘贴模式填入
+  document.getElementById('tabPaste').click();
+  document.getElementById('rawInput').value=SAMPLE;
+  loadedFileContent=null;
+  alert('已填入苏梅示例数据,点「清洗 + 自检」看效果');
+};
+
+// 一段精简的真实示例（够触发完整流程演示）
+const SAMPLE = JSON.stringify({data:{season_periods:{"2026":[
+  {season_name:"Low Season",start:"2026-10-09",end:"2026-12-15",price_info:[
+    {rate_plan:"积分价格 - 免费早餐",room_title:"豪华客房",room_code:"DELUXE_K",columns:[
+      {title:"MON, FRI, SAT, SUN",price:700,days:["MON","FRI","SAT","SUN"]},
+      {title:"TUE-THU",price:550,days:["TUE","WED","THU"]}]},
+    {rate_plan:"Points Rate - Wellness Reset",room_title:"豪华客房",room_code:"DELUXE_K",columns:[
+      {title:"MON, FRI, SAT, SUN",price:1700,days:["MON","FRI","SAT","SUN"]},
+      {title:"TUE-THU",price:1550,days:["TUE","WED","THU"]}]},
+    {rate_plan:"积分价格 - 免费早餐",room_title:"泳池别墅",room_code:"POOL_VIL",columns:[
+      {title:"MON, FRI, SAT, SUN",price:1200,days:["MON","FRI","SAT","SUN"]},
+      {title:"TUE-THU",price:950,days:["TUE","WED","THU"]}]}]},
+  {season_name:"High Season",start:"2026-01-01",end:"2026-01-31",price_info:[
+    {rate_plan:"积分价格 - 免费早餐",room_title:"豪华客房",room_code:"DELUXE_K",columns:[
+      {title:"MON-SUN",price:0,days:["MON","TUE","WED","THU","FRI","SAT","SUN"]}]},
+    {rate_plan:"积分价格 - 免费早餐",room_title:"泳池别墅",room_code:"POOL_VIL",columns:[
+      {title:"MON-SUN",price:0,days:["MON","TUE","WED","THU","FRI","SAT","SUN"]}]}]}
+  ],"2027":[
+  {season_name:"High Season",start:"2027-01-01",end:"2027-02-28",price_info:[
+    {rate_plan:"积分价格 - 免费早餐",room_title:"豪华客房",room_code:"DELUXE_K",columns:[
+      {title:"MON, FRI, SAT, SUN",price:1100,days:["MON","FRI","SAT","SUN"]},
+      {title:"TUE-THU",price:850,days:["TUE","WED","THU"]}]},
+    {rate_plan:"积分价格 - 免费早餐",room_title:"泳池别墅",room_code:"POOL_VIL",columns:[
+      {title:"MON, FRI, SAT, SUN",price:2100,days:["MON","FRI","SAT","SUN"]},
+      {title:"TUE-THU",price:1700,days:["TUE","WED","THU"]}]}]}
+  ]},rooms:[
+    {code:"DELUXE_K",type_name:"豪华客房",max_occup:3},
+    {code:"POOL_VIL",type_name:"泳池别墅",max_occup:3}
+  ]}});
+</script>
+</body>
+</html>

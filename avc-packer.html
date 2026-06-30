@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVC 数据打包工具</title>
+<style>
+  :root{
+    --bg:#10100e;--panel:#191915;--panel2:#21211c;--line:#33332b;
+    --ink:#f0ede4;--dim:#9a978a;--dimmer:#6b6a5f;
+    --gold:#c8a25a;--gold-br:#e6c884;--sand:#d8cdb0;
+    --ok:#6db58a;--warn:#d99a3e;--err:#b5614f;
+    --mono:'SF Mono',ui-monospace,Consolas,monospace;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--ink);font-family:'PingFang SC','Microsoft YaHei',system-ui,sans-serif;line-height:1.55;padding-bottom:60px}
+  .wrap{max-width:820px;margin:0 auto;padding:28px 20px}
+  header{border-bottom:1px solid var(--line);padding-bottom:18px;margin-bottom:22px}
+  .eyebrow{font-family:var(--mono);font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:7px}
+  h1{font-size:23px;font-weight:700}
+  .sub{font-size:13px;color:var(--dim);margin-top:5px}
+  .step{font-family:var(--mono);font-size:12px;color:var(--gold);margin:24px 0 10px;display:flex;align-items:center;gap:8px}
+  .step .num{display:inline-flex;width:20px;height:20px;border:1px solid var(--gold);border-radius:50%;align-items:center;justify-content:center;font-size:11px}
+  .dropzone{border:2px dashed var(--line);border-radius:12px;padding:40px 20px;text-align:center;cursor:pointer;background:var(--panel);transition:.15s}
+  .dropzone:hover,.dropzone.drag{border-color:var(--gold);background:var(--panel2)}
+  .dz-ico{font-size:30px;color:var(--gold);margin-bottom:10px}
+  .dz-main{font-size:15px;margin-bottom:5px}
+  .dz-sub{font-size:12px;color:var(--dim)}
+  .filelist{margin-top:18px;display:none}
+  .filelist.show{display:block}
+  table{width:100%;border-collapse:collapse;font-size:13px}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+  th{color:var(--gold);font-size:11px;font-family:var(--mono);letter-spacing:.04em}
+  td.name{font-weight:600}
+  .badge{font-size:10px;padding:1px 7px;border-radius:4px;font-family:var(--mono)}
+  .b-ok{background:rgba(109,181,138,.15);color:var(--ok)}
+  .b-fix{background:rgba(217,154,62,.15);color:var(--warn)}
+  .b-err{background:rgba(181,97,79,.15);color:var(--err)}
+  .summary{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;margin-top:18px;font-size:14px;display:none}
+  .summary.show{display:block}
+  .summary b{color:var(--gold-br);font-family:var(--mono)}
+  .btn{background:var(--gold);color:#1a1206;border:none;padding:14px 24px;border-radius:9px;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;margin-top:16px}
+  .btn:active{background:var(--gold-br)}
+  .btn:disabled{opacity:.4;cursor:not-allowed}
+  .btn-ghost{background:transparent;border:1px solid var(--line);color:var(--ink);margin-left:8px}
+  .alert{padding:10px 14px;border-radius:7px;font-size:13px;margin-top:8px}
+  .alert.warn{background:rgba(217,154,62,.1);border:1px solid rgba(217,154,62,.3);color:var(--warn)}
+  .alert.err{background:rgba(181,97,79,.1);border:1px solid rgba(181,97,79,.3);color:var(--err)}
+  code{font-family:var(--mono);background:var(--panel2);padding:1px 6px;border-radius:4px;font-size:12px;color:var(--sand)}
+  .hint{font-size:12px;color:var(--dimmer);margin-top:8px;line-height:1.6}
+  .next{margin-top:28px;padding:16px;background:var(--panel);border:1px solid var(--line);border-radius:10px;font-size:13px;line-height:1.7;color:var(--dim);display:none}
+  .next.show{display:block}
+  .next h3{font-size:14px;color:var(--gold-br);margin-bottom:8px}
+  .next ol{margin-left:18px}
+  .next code{color:var(--sand)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <p class="eyebrow">Anantara Vacation Club · Internal</p>
+    <h1>数据打包工具</h1>
+    <p class="sub">把清洗好的酒店 json 打包成可上传的文件夹(含 index.json 清单),缺名字的自动用文件名补上</p>
+  </header>
+
+  <div class="step"><span class="num">1</span> 选择所有酒店 json 文件</div>
+  <div class="dropzone" id="dropzone">
+    <input type="file" id="fileInput" accept=".json" multiple style="display:none">
+    <div class="dz-ico">⬆</div>
+    <div class="dz-main">点这里多选,或把一堆 .json 拖进来</div>
+    <div class="dz-sub">可一次选中全部 30 个文件(Ctrl+A 全选)</div>
+  </div>
+  <p class="hint">这些是你用清洗工具生成的酒店数据文件。文件名建议是酒店英文名,缺名字的会自动用文件名补。</p>
+
+  <div class="filelist" id="filelist"></div>
+  <div class="summary" id="summary"></div>
+
+  <div id="actions" style="display:none">
+    <button class="btn" id="zipBtn">打包下载(含 index.json)</button>
+    <button class="btn btn-ghost" id="resetBtn">重新选</button>
+  </div>
+
+  <div class="next" id="nextSteps">
+    <h3>下一步:上传到 GitHub</h3>
+    <ol>
+      <li>解压下载的 zip,得到一个 <code>hotels</code> 文件夹(里面是所有酒店 json + 一个 <code>index.json</code>)</li>
+      <li>把整个 <code>hotels</code> 文件夹上传到你的 GitHub 仓库</li>
+      <li>查询系统里填这个文件夹的地址(到 <code>hotels/</code> 为止),就能自动加载全部酒店</li>
+    </ol>
+    <p style="margin-top:10px">以后加新酒店:把新 json 放进 <code>hotels</code> 文件夹,并在 <code>index.json</code> 里加一行文件名即可。或重新用本工具打包。</p>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<script>
+const $=id=>document.getElementById(id);
+let processed=[]; // {filename, hotelName, json, status, note}
+
+function cleanName(filename){
+  return filename.replace(/\.json$/i,'').replace(/[_-]+/g,' ').trim();
+}
+// 把酒店名/文件名转成「网址安全」的文件名：去掉所有在 URL 里有特殊含义的字符
+function safeFilename(raw){
+  let s=raw
+    .replace(/\.json$/i,'')           // 去掉已有后缀
+    .replace(/[\\/:*?"<>|]/g,'')       // 去掉文件系统非法字符
+    .replace(/[+&#%?=\s]+/g,'-')       // + & # % ? = 空格 → 连字符（这些在URL里会出问题）
+    .replace(/-+/g,'-')                // 多个连字符合并成一个
+    .replace(/^-+|-+$/g,'');           // 去掉首尾连字符
+  return s+'.json';
+}
+
+function processFiles(files){
+  processed=[];
+  let pending=files.length;
+  if(pending===0) return;
+  Array.from(files).forEach(file=>{
+    const reader=new FileReader();
+    reader.onload=ev=>{
+      let rec={filename:file.name, status:'ok', note:'', json:null, hotelName:''};
+      try{
+        const obj=JSON.parse(ev.target.result);
+        if(!obj.rooms||!obj.seasons||!obj.prices){
+          rec.status='err'; rec.note='不是有效酒店数据(缺 rooms/seasons/prices)';
+        } else {
+          // 补名字
+          if(!obj.hotel_name || obj.hotel_name==='(未命名)' || obj.hotel_name===''){
+            obj.hotel_name=cleanName(file.name);
+            rec.status='fix'; rec.note='用文件名补了名字';
+          }
+          rec.hotelName=obj.hotel_name;
+          rec.json=obj;
+        }
+      }catch(e){ rec.status='err'; rec.note='JSON 解析失败'; }
+      processed.push(rec);
+      if(--pending===0) render();
+    };
+    reader.onerror=()=>{ processed.push({filename:file.name,status:'err',note:'读取失败'}); if(--pending===0)render(); };
+    reader.readAsText(file);
+  });
+}
+
+function render(){
+  // 按文件名排序，稳定
+  processed.sort((a,b)=>a.filename.localeCompare(b.filename));
+  const ok=processed.filter(p=>p.status==='ok').length;
+  const fix=processed.filter(p=>p.status==='fix').length;
+  const err=processed.filter(p=>p.status==='err').length;
+
+  // 列表
+  let html='<table><thead><tr><th>文件</th><th>酒店名</th><th>状态</th></tr></thead><tbody>';
+  processed.forEach(p=>{
+    const badge=p.status==='ok'?'<span class="badge b-ok">正常</span>'
+      :p.status==='fix'?'<span class="badge b-fix">已补名</span>'
+      :'<span class="badge b-err">错误</span>';
+    html+=`<tr><td>${p.filename}</td><td class="name">${p.hotelName||'—'}</td><td>${badge}${p.note?' <span style="color:var(--dimmer);font-size:11px">'+p.note+'</span>':''}</td></tr>`;
+  });
+  html+='</tbody></table>';
+  $('filelist').innerHTML=html;
+  $('filelist').classList.add('show');
+
+  // 重名检测
+  const names={}; const dups=[];
+  processed.filter(p=>p.json).forEach(p=>{
+    if(names[p.hotelName]) dups.push(p.hotelName); else names[p.hotelName]=1;
+  });
+
+  let s=`成功 <b>${ok+fix}</b> 家`;
+  if(fix) s+=` · 其中 <b>${fix}</b> 家自动补了名字`;
+  if(err) s+=` · <b>${err}</b> 个文件有问题(已跳过)`;
+  $('summary').innerHTML=s+(dups.length?`<div class="alert warn">⚠ 有重名酒店:${[...new Set(dups)].join('、')}。建议改文件名区分,否则系统里会混淆</div>`:'');
+  $('summary').classList.add('show');
+
+  $('actions').style.display=(ok+fix)>0?'block':'none';
+}
+
+$('dropzone').onclick=()=>$('fileInput').click();
+$('fileInput').onchange=e=>processFiles(e.target.files);
+$('dropzone').ondragover=e=>{e.preventDefault();$('dropzone').classList.add('drag');};
+$('dropzone').ondragleave=()=>$('dropzone').classList.remove('drag');
+$('dropzone').ondrop=e=>{e.preventDefault();$('dropzone').classList.remove('drag');processFiles(e.dataTransfer.files);};
+
+$('resetBtn').onclick=()=>{
+  processed=[]; $('filelist').classList.remove('show'); $('summary').classList.remove('show');
+  $('actions').style.display='none'; $('nextSteps').classList.remove('show'); $('fileInput').value='';
+};
+
+$('zipBtn').onclick=async()=>{
+  const valid=processed.filter(p=>p.json);
+  if(valid.length===0){alert('没有有效数据');return;}
+  const zip=new JSZip();
+  const folder=zip.folder('hotels');
+  const indexList=[];
+  const cleaned=[]; // 记录被改过名的，提示用
+  valid.forEach(p=>{
+    const original=(p.hotelName||cleanName(p.filename));
+    let fn=safeFilename(original);
+    // 避免重名覆盖
+    let base=fn.replace(/\.json$/,''); let i=2;
+    while(indexList.includes(fn)){ fn=base+'-'+i+'.json'; i++; }
+    // 如果清理后和"原始名直接加.json"不同，说明动过特殊字符
+    const naive=original.replace(/\.json$/i,'')+'.json';
+    if(fn!==naive) cleaned.push({from:naive, to:fn});
+    folder.file(fn, JSON.stringify(p.json,null,2));
+    indexList.push(fn);
+  });
+  // 自检：确认 index 和所有文件名都干净
+  const idxContent=indexList.map(n=>'"'+n+'"').join(',\n');
+  const dirty=indexList.filter(n=>/[\s+&#%?=]/.test(n));
+  folder.file('index.json', '[\n'+idxContent+'\n]\n');
+
+  const blob=await zip.generateAsync({type:'blob'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='hotels.zip';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  $('nextSteps').classList.add('show');
+
+  // 报告清理情况
+  let msg='✓ 打包完成,'+indexList.length+' 家\n';
+  msg+=(dirty.length===0)?'✓ 所有文件名已检查,无空格/特殊字符,可安全上传':'⚠ 注意:仍有问题文件名:\n'+dirty.join('\n');
+  if(cleaned.length){
+    msg+='\n\n以下 '+cleaned.length+' 个文件名含特殊字符(+&等),已自动改为安全名:\n';
+    msg+=cleaned.map(c=>c.from+'\n  → '+c.to).join('\n');
+  }
+  setTimeout(()=>alert(msg),300);
+};
+</script>
+</body>
+</html>
